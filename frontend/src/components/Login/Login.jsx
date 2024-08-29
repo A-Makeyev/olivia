@@ -11,8 +11,8 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Login to your account
+        <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
+          Sign in to your account
         </h2>
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -89,15 +89,15 @@ const Login = () => {
               <button
                 type="submit"
                 className="group relative w-full h-[40px] py-2 px-4 flex justify-center border border-transparent 
-                text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 transition"
+                text-sm font-medium rounded-md text-zinc-50 bg-slate-800 hover:bg-slate-900 transition"
               >
-                Submit
+                Login
               </button>
             </div>
-            <div className="flex items-center w-full">
+            <div className="flex items-center justify-center w-full">
                 <h4>Don't have an account yet?</h4>
                 <Link to="/sign-up" className="ml-1 font-medium text-blue-500 hover:text-blue-600 transition">
-                  Register
+                  Sign Up
                 </Link>
             </div>
           </form>
