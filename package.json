@@ -8,7 +8,9 @@
     "client": "npm start --prefix frontend",
     "test": "npx playwright test --project=chromium --headed",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "npm i && npm i --prefix frontend && npm run build --prefix frontend"
+    "build": "npm i && npm i --prefix frontend && npm run build --prefix frontend",
+    "destroy-data": "node backend/seeder.js -d",
+    "import-data": "node backend/seeder.js"
   },
   "author": "Anatoly Makeyev",
   "license": "ISC",
