@@ -1,5 +1,5 @@
 const app = require('./app')
-const connectDB = require('./db/Database')
+const connectMongoDB = require('./config/database')
 
 process.on('uncaughtException', (err) => {
     console.log(`Uncaught exception: ${err.message}`)
@@ -12,11 +12,11 @@ if (process.env.NODE_ENV !== 'PRODUCTION') {
     })
 }
 
-connectDB()
+connectMongoDB()
 
 const PORT = process.env.PORT || 8000
 const server = app.listen(PORT, () => {
-    console.log(`>>> Server is up and running on http://localhost:${PORT}`)
+    console.log(`>>> Server is up and running on port ${PORT}`)
 })
 
 process.on('unhandledRejection', (err) => {
