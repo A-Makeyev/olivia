@@ -1,10 +1,9 @@
-const express = require('express')
-const ErrorHandler = require('./utils/ErrorHandler')
+const ErrorHandler = require('./middleware/error')
 const cookieParser = require('cookie-parser')
-const bodyParser = require('body-parser')
 const user = require('./controllers/user')
+const bodyParser = require('body-parser')
+const express = require('express')
 const cors = require('cors')
-
 const app = express()
 
 app.use(cors())

@@ -35,7 +35,13 @@ const SignUp = () => {
 
       await axios.post(createUser, newForm, config)
       .then((res) => {
+        console.log(res)
         if (res.data.success) {
+          
+          setName('')
+          setEmail('')
+          setPassword('')
+          setAvatar(null)
           navigate('/')
         }
       }).catch((err) => {
