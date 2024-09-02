@@ -1,13 +1,15 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai" 
+import HashLoader from "react-spinners/HashLoader"
 
 
 const Login = () => {
   const [email, setEmail] = useState('') 
   const [password, setPassword] = useState('')
   const [visible, setVisible] = useState(false) 
-
+  const [loading, setloading] = useState(false)
+  
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -91,7 +93,7 @@ const Login = () => {
                 className="group relative w-full h-[40px] py-2 px-4 flex justify-center border border-transparent 
                 text-sm font-medium rounded-md text-zinc-50 bg-slate-800 hover:bg-slate-900 transition"
               >
-                Login
+                { loading ? <HashLoader size="20" color="#fafafa" /> : 'Login' }
               </button>
             </div>
             <div className="flex items-center justify-center w-full">

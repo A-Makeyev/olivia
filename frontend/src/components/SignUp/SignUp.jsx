@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { PiUserCircleDuotone } from "react-icons/pi"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai" 
 import { createUser } from "../../constants"
+import HashLoader from "react-spinners/HashLoader"
 import axios from 'axios'
 
 
@@ -13,6 +14,7 @@ const SignUp = () => {
     const [password, setPassword] = useState('')
     const [visible, setVisible] = useState(false) 
     const [avatar, setAvatar] = useState(null)
+    const [loading, setloading] = useState(false)
 
     const handleImageUpload = (e) => {
       const file = e.target.files[0]
@@ -21,6 +23,7 @@ const SignUp = () => {
 
     const handleSignUp = async (e) => {
       e.preventDefault()
+      setloading(true)
 
       const config = {
         headers: { 'Content-Type': 'multipart/form-data' }
@@ -40,7 +43,7 @@ const SignUp = () => {
           setEmail('')
           setPassword('')
           setAvatar(null)
-          //navigate('/')
+          setloading(false)
         }
       }).catch((err) => {
         console.log(err)
@@ -163,7 +166,7 @@ const SignUp = () => {
                   className="group relative w-full h-[40px] py-2 px-4 flex justify-center border border-transparent 
                   text-sm font-medium rounded-md text-zinc-50 bg-slate-800 hover:bg-slate-900 transition"
                 >
-                  Sign Up
+                  { loading ? <HashLoader size="20" color="#fafafa" /> : 'Sign Up' }
                 </button>
               </div>
               <div className="flex items-center justify-center w-full">
