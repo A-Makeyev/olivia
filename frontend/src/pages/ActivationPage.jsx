@@ -11,23 +11,20 @@ const ActivationPage = () => {
     const [error, setError] = useState(false)
 
     useEffect(() => {
-        console.log(activationToken)
         if (activationToken) {
             const activateEmail = async () => {
-                try {
-                    const res = await axios.post(activateUser, { activationToken })
-                    console.log(res.data.message)
+                await axios.post(activateUser, { activationToken })
+                .then(() => {
                     setTimeout(() => {
                         navigate('/')
                     }, 5000)
-                } catch (err) {
+                }).catch(() => {
                     setError(true)
-                    console.log(err.response.data.message)
-                }
+                })
             }
             activateEmail()
         }
-    })
+    }, [activationToken, navigate])
 
     return (
         <div style={{
@@ -38,18 +35,18 @@ const ActivationPage = () => {
             justifyContent: "center"
         }}>
 
-        { error ? (
-            <h1>Your Activation Token is Expired</h1>
-        ) : (
-            <div>
-                <Confetti
-                    recycle={false}
-                    tweenDuration={20000}
-                    numberOfPieces={1000}
-                />
-            <h1>Account Created</h1>
-            </div>
-        )}
+            { error ? (
+                <h1>Your activation token is expired!</h1>
+            ) : (
+                <div>
+                    <Confetti
+                        recycle={false}
+                        tweenDuration={20000}
+                        numberOfPieces={1000}
+                    />
+                <h1>Your account has been created!</h1>
+                </div>
+            )}
 
         </div>
     )

@@ -1,4 +1,4 @@
-const sendToken = (user, statusCode, res) => {
+const sendToken = (user, res, statusCode) => {
     const token = user.getJwtToken()
   
     const options = {

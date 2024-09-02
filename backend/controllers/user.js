@@ -16,9 +16,9 @@ const dev = process.env.NODE_ENV !== 'PRODUCTION'
 
 router.post('/create-user', upload.single('file'), async (req, res, next) => {
   try {
-    const { name, email, password } = req.body
+    const { name, email, password, avatar } = req.body
     const user = await User.findOne({ email })
-    const uploadedFile = req.file
+    const uploadedFile = avatar || req.file
 
     if (user) {
       if (uploadedFile) {
@@ -42,7 +42,7 @@ router.post('/create-user', upload.single('file'), async (req, res, next) => {
     }
 
     const fileUrl = uploadedFile ? path.join(uploadedFile.filename) : 'default-avatar'
-    dev && console.log(uploadedFile ? uploadedFile : 'No file selected')
+    dev && uploadedFile && console.log(uploadedFile)
 
     const newUser = {
       name: name,
@@ -51,7 +51,10 @@ router.post('/create-user', upload.single('file'), async (req, res, next) => {
       avatar: fileUrl
     }
 
-    const activationToken = createActivationToken(newUser)
+    const activationToken = jwt.sign(newUser, process.env.ACTIVATION_SECRET, {
+      expiresIn: '5m',
+    })
+
     const activationLink = `http://localhost:3000/activation/${activationToken}`
 
     try {
@@ -59,11 +62,11 @@ router.post('/create-user', upload.single('file'), async (req, res, next) => {
         email: newUser.email,
         subject: 'Activate Your Olivia Account',
         html: welcomeEmail(newUser.name, activationLink)
-      }).then(() => {
-        res.status(201).json({
-          success: true,
-          newUser
-        })
+      })
+
+      res.status(201).json({
+        success: true,
+        activationToken: activationToken,
       })
 
       dev && console.log(`Activation email has been sent to "${newUser.email}"`)
@@ -76,17 +79,13 @@ router.post('/create-user', upload.single('file'), async (req, res, next) => {
   }
 })
 
-const createActivationToken = (user) => {
-  return jwt.sign(user, process.env.ACTIVATION_SECRET, {
-    expiresIn: '5m',
-  })
-}
-
 router.post('/activation', catchAsyncErrors(async (req, res, next) => {
   try {
     const { activationToken } = req.body
     const newUser = jwt.verify(activationToken, process.env.ACTIVATION_SECRET)
-    
+
+    dev && console.log(newUser)
+
     if (!newUser) {
       return next(new ErrorHandler('Invalid Token', 400))
     }
@@ -112,9 +111,9 @@ router.post('/activation', catchAsyncErrors(async (req, res, next) => {
         success: true,
         user
       })
-      sendToken(user, 201, res)
+      sendToken(user, res, 201)
     } else {
-        res.status(401)
+        res.status(401)  
         throw new Error('Invalid User Data')
     }
 
