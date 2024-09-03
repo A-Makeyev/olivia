@@ -13,8 +13,11 @@ const ActivationPage = () => {
     useEffect(() => {
         if (activationToken) {
             const activateEmail = async () => {
-                await axios.post(activateUser, { activationToken })
-                .then(() => {
+                await axios.post(
+                    activateUser, 
+                    { activationToken }, 
+                    { withCredentials: true }
+                ).then(() => {
                     setTimeout(() => {
                         navigate('/')
                     }, 5000)

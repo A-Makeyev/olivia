@@ -25,10 +25,6 @@ const SignUp = () => {
       e.preventDefault()
       setloading(true)
 
-      const config = {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      }
-
       const newForm = new FormData()
 
       newForm.append('name', name)
@@ -36,8 +32,9 @@ const SignUp = () => {
       newForm.append('password', password)
       newForm.append('file', avatar)
 
-      await axios.post(createUser, newForm, config)
-      .then((res) => {
+      await axios.post(createUser, newForm, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      }).then((res) => {
         if (res.data.success) {
           setName('')
           setEmail('')
@@ -46,6 +43,7 @@ const SignUp = () => {
           setloading(false)
         }
       }).catch((err) => {
+        setloading(false)
         console.log(err)
       })
     }

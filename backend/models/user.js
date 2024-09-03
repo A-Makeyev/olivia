@@ -48,6 +48,9 @@ const userSchema = new mongoose.Schema({
   },
   avatar: {
     type: String,
+    // public_id: {
+    //   type: String,
+    // },
  },
  createdAt: {
   type: Date,
@@ -56,7 +59,6 @@ const userSchema = new mongoose.Schema({
  resetPasswordToken: String,
  resetPasswordTime: Date,
 })
-
 
 //  hash password
 userSchema.pre('save', async function (next) {
@@ -67,16 +69,16 @@ userSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, 10)
 })
 
-// jwt token
-// userSchema.methods.getJwtToken = function () {
-//   return jwt.sign({ id: this._id}, process.env.JWT_SECRET_KEY, {
-//     expiresIn: process.env.JWT_EXPIRES,
-//   })
-// }
+// compare passwords
+userSchema.methods.comparePassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password)
+}
 
-// // compare passwords
-// userSchema.methods.comparePassword = async function (enteredPassword) {
-//   return await bcrypt.compare(enteredPassword, this.password)
-// }
+// jwt token
+userSchema.methods.signJwtToken = function () {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
+    algorithm: 'HS256', expiresIn: process.env.JWT_EXPIRATION, 
+  })
+}
 
 module.exports = mongoose.model('User', userSchema)

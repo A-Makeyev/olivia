@@ -3,9 +3,9 @@ const { isAuthenticated, isAdmin } = require('../middleware/auth')
 const catchAsyncErrors = require('../middleware/catchAsyncErrors')
 const welcomeEmail = require('../templates/welcomeEmail')
 const ErrorHandler = require('../utils/ErrorHandler')
-const sendToken = require('../utils/jwtToken')
+const setToken = require('../utils/jwtToken')
 const sendMail = require('../utils/sendMail')
-const User = require('../models/user')
+const User = require('../models/User')
 const jwt = require('jsonwebtoken')
 const express = require('express')
 const path = require('path')
@@ -52,7 +52,7 @@ router.post('/create-user', upload.single('file'), async (req, res, next) => {
     }
 
     const activationToken = jwt.sign(newUser, process.env.ACTIVATION_SECRET, {
-      expiresIn: '5m',
+      algorithm: 'HS256', expiresIn: '5m' 
     })
 
     const activationLink = `http://localhost:3000/activation/${activationToken}`
@@ -82,39 +82,35 @@ router.post('/create-user', upload.single('file'), async (req, res, next) => {
 router.post('/activation', catchAsyncErrors(async (req, res, next) => {
   try {
     const { activationToken } = req.body
-    const newUser = jwt.verify(activationToken, process.env.ACTIVATION_SECRET)
+    const pendingUser = jwt.verify(activationToken, process.env.ACTIVATION_SECRET)
 
-    dev && console.log(newUser)
+    dev && console.log(pendingUser)
 
-    if (!newUser) {
+    if (!pendingUser) {
       return next(new ErrorHandler('Invalid Token', 400))
     }
 
-    const { name, email, password, avatar } = newUser
-    let user = await User.findOne({ email })
+    const { name, email, password, avatar } = pendingUser
+    let newUser = await User.findOne({ email })
 
-    if (user) {
+    if (newUser) {
       return next(new ErrorHandler(`User with email "${user.email}" already exists`, 400))
     }
 
-    user = await User.create({
+    newUser = await User.create({
       name,
       email,
       password,
       avatar
     })
 
-    dev && console.log(user)
-    
-    if (user) { 
-      res.status(201).json({
-        success: true,
-        user
-      })
-      sendToken(user, res, 201)
+    dev && console.log(newUser)
+
+    if (newUser) { 
+      setToken(newUser, res, 201)
     } else {
-        res.status(401)  
-        throw new Error('Invalid User Data')
+      res.status(401)  
+      throw new Error('Invalid User Data')
     }
 
   } catch (err) {
