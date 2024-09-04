@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { PiUserCircleDuotone } from "react-icons/pi"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai" 
 import { createUser } from "../../constants"
+import toast, { Toaster } from 'react-hot-toast'
 import HashLoader from "react-spinners/HashLoader"
 import axios from 'axios'
 
@@ -41,10 +42,24 @@ const SignUp = () => {
           setPassword('')
           setAvatar(null)
           setloading(false)
+          toast(res.data.message, {
+            className: 'bg-green-500 text-zinc-50',
+            style: {
+              textAlign: 'center',
+              fontWeight: '600'
+
+            },
+          })
         }
       }).catch((err) => {
         setloading(false)
-        console.log(err)
+        toast(err.response.data.message, {
+          className: 'bg-red-500 text-zinc-50',
+          style: {
+            textAlign: 'center',
+            fontWeight: '600'
+          },
+        })
       })
     }
 
@@ -172,6 +187,7 @@ const SignUp = () => {
                   <Link to="/login" className="ml-1 font-medium text-blue-500 hover:text-blue-600 transition">
                     Login
                   </Link>
+                  <Toaster />
               </div>
             </form>
           </div>

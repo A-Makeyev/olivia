@@ -36,9 +36,10 @@ router.post('/create-user', upload.single('file'), async (req, res, next) => {
           }
         })
       }
-      let errMsg = `User with email "${user.email}" already exists`
-      dev && console.log(errMsg)
-      return next(new ErrorHandler(errMsg, 400))
+
+      dev && console.log(`User with email "${user.email}" already exists`)
+      
+      return next(new ErrorHandler('User with this email already exists', 400))
     }
 
     const fileUrl = uploadedFile ? path.join(uploadedFile.filename) : 'default-avatar'
@@ -67,9 +68,10 @@ router.post('/create-user', upload.single('file'), async (req, res, next) => {
       res.status(201).json({
         success: true,
         activationToken: activationToken,
+        message: `Activation link has been sent to "${newUser.email}"`,
       })
 
-      dev && console.log(`Activation email has been sent to "${newUser.email}"`)
+      dev && console.log(`Activation token has been sent to "${newUser.email}"`)
 
     } catch(err) {
       return next(new ErrorHandler(err.message, 500))
@@ -109,8 +111,10 @@ router.post('/activation', catchAsyncErrors(async (req, res, next) => {
     if (newUser) { 
       setToken(newUser, res, 201)
     } else {
-      res.status(401)  
-      throw new Error('Invalid User Data')
+      res.status(401).json({
+        success: false,
+        message: 'Invalid User Data'
+      })
     }
 
   } catch (err) {
