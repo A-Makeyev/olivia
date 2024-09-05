@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { activateUser } from "../constants"
+import { activateUserUrl } from "../constants"
 import Confetti from "react-confetti"
 import axios from "axios"
 
@@ -14,12 +14,12 @@ const ActivationPage = () => {
         if (activationToken) {
             const activateEmail = async () => {
                 await axios.post(
-                    activateUser, 
+                    activateUserUrl, 
                     { activationToken }, 
                     { withCredentials: true }
                 ).then(() => {
                     setTimeout(() => {
-                        navigate('/')
+                        navigate('/login')
                     }, 5000)
                 }).catch(() => {
                     setError(true)

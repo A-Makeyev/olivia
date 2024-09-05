@@ -6,3 +6,22 @@ npm run destroy-data
 1. forms ui error handling
 2. responsive email template
 3.
+
+- Fix shipping price (default 10)
+- Fix shipping address (from cart to user)
+- Fix form validation (profile, shipping, signin, register)
+- Add user phone
+- Add change address & payment from place order screen
+- Add update payment and shipping inside profile
+- Add reset password
+- Add email verification
+- Add save to favorite items list
+- Add sign up and login with google
+- Add profile pic
+- Add create product form 
+- Add max price and max text to forms
+- Add delete account from profile
+- Add update review?
+- Add css root color vars
+- Delete uploaded picture after deleting product
+- Change IP access to mongoDB

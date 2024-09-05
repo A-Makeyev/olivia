@@ -14,7 +14,7 @@ const fs = require('fs')
 const router = express.Router()
 const dev = process.env.NODE_ENV !== 'PRODUCTION'
 
-router.post('/create-user', upload.single('file'), async (req, res, next) => {
+router.post('/create', upload.single('file'), async (req, res, next) => {
   try {
     const { name, email, password, avatar } = req.body
     const user = await User.findOne({ email })
@@ -68,10 +68,10 @@ router.post('/create-user', upload.single('file'), async (req, res, next) => {
       res.status(201).json({
         success: true,
         activationToken: activationToken,
-        message: `Activation link has been sent to "${newUser.email}"`,
+        message: `Activation link has been sent to ${newUser.email}`,
       })
 
-      dev && console.log(`Activation token has been sent to "${newUser.email}"`)
+      dev && console.log(`Activation token has been sent to ${newUser.email}`)
 
     } catch(err) {
       return next(new ErrorHandler(err.message, 500))
@@ -109,13 +109,70 @@ router.post('/activation', catchAsyncErrors(async (req, res, next) => {
     dev && console.log(newUser)
 
     if (newUser) { 
-      setToken(newUser, res, 201)
+      setToken(
+        res, 
+        201, 
+        newUser, 
+        `${newUser.name} is activated`
+      )
     } else {
       res.status(401).json({
         success: false,
         message: 'Invalid User Data'
       })
     }
+
+  } catch (err) {
+    return next(new ErrorHandler(err.message, 500))
+  }
+}))
+
+router.post('/login', async (req, res, next) => {
+  try {
+    const { email, password } = req.body
+    const errorMessage = 'Wrong email or password'
+
+    if (!email || !password) {
+      return next(new ErrorHandler('Missing fields', 400))  
+    }
+
+    const user = await User.findOne({ email }).select('+password')
+
+    if (!user) {
+      return next(new ErrorHandler(errorMessage, 400))
+    }
+
+    const validPassword = await user.comparePasswords(password)
+
+    if (!validPassword) {
+      return next(new ErrorHandler(errorMessage, 400))
+    }
+
+    setToken(
+      res, 
+      201, 
+      user, 
+      `Welcome back ${user.name}`
+    )
+
+  } catch (err) {
+    return next(new ErrorHandler(err.message, 500))
+  }
+})
+
+router.get('/authenticate', isAuthenticated, catchAsyncErrors(async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id)
+
+    if (!user) {
+      return next(new ErrorHandler('User does not exist', 400))
+    }
+
+    res.status(200).json({
+      success: true,
+      message: `${user.name} is authenticated`,
+      user
+    })
 
   } catch (err) {
     return next(new ErrorHandler(err.message, 500))

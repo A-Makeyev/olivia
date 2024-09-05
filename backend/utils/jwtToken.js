@@ -1,4 +1,4 @@
-const setToken = (user, res, statusCode) => {
+const setToken = (res, statusCode, user, message) => {
     const token = user.signJwtToken()
 
     res.cookie('token', token, {
@@ -10,6 +10,7 @@ const setToken = (user, res, statusCode) => {
 
     res.status(statusCode).json({
       success: true,
+      message: message,
       token,
       user,
     })
