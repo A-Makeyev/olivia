@@ -114,7 +114,7 @@ const Login = () => {
               <button
                 type="submit"
                 className="group relative w-full h-[40px] py-2 px-4 flex justify-center border border-transparent 
-                text-sm font-medium rounded-md text-zinc-50 bg-slate-800 hover:bg-slate-900 transition"
+                text-sm font-medium rounded-md text-zinc-50 bg-slate-900 hover:bg-slate-800 transition"
               >
                 {loading ? <HashLoader size="20" color="#fafafa" /> : 'Login'}
               </button>
