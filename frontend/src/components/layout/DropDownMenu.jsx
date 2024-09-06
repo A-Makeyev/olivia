@@ -10,7 +10,7 @@ const DropDownMenu = ({ categories, setDropDown }) => {
     } 
 
   return (
-    <div className="absolute pb-4 w-[270px] bg-slate-50 z-30 rounded-b-md shadow-sm">
+    <div className="absolute pb-4 w-[260px] bg-slate-50 z-30 rounded-b-md shadow-xl">
         { categories && categories.map((category, index) => (
             <div key={index} onClick={() => submitHandler(category)} className="flex items-center">
                 <img 

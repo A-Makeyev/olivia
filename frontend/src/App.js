@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-// import { useDispatch, useSelector } from "react-redux"
 import { authenticateUser } from "./redux/actions/user"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { LoginPage, SignUpPage, ActivationPage, HomePage } from "./Routes.js"
@@ -12,21 +11,6 @@ const App = () => {
   useEffect(() => {
     Store.dispatch(authenticateUser()) 
   }) 
-
-  // const dispatch = useDispatch()
-  // const { isAuthenticated, user, loading, error } = useSelector((state) => state.user)
-
-  // useEffect(() => {
-  //   dispatch(authenticateUser()) 
-  // }, [dispatch]) 
-
-  // useEffect(() => {
-  //   if (!loading && isAuthenticated) {
-  //     toast(`Welcome back ${user.name}`, {
-  //       className: 'bg-green-500 text-zinc-50'
-  //     })
-  //   }
-  // }, [isAuthenticated, user, loading, error]) 
 
   return (
     <BrowserRouter>
