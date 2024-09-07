@@ -32,8 +32,7 @@ const Header = ({ activePageIndex }) => {
     }
   })
 
-  const number = 7
-
+  const number = 99
 
   return (
     <>
@@ -54,7 +53,7 @@ const Header = ({ activePageIndex }) => {
             />
             <IoSearch size={30} className="absolute right-2 top-1.5 cursor-pointer" />
             {searchData && searchData.length !== 0 && (
-              <div className="w-full absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4 shadow-xl">
+              <div className="w-full absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4 rounded-b-xl shadow-xl">
                 {searchData && searchData.map((data, index) => {
                   const productName = data.name.replace(/\s+/g, '-')
                   return (
@@ -83,10 +82,10 @@ const Header = ({ activePageIndex }) => {
           <div>
             <div onClick={() => setDropDown(!dropDown)} className="hidden relative h-[60px] mt-[10px] w-[260px] lg:block">
               <BiMenuAltLeft size={30} className="absolute top-3 left-2 cursor-pointer" />
-              <button className="w-full flex justify-between items-center h-[100%] pl-10 pb-1 bg-slate-50 font-sans text-lg font-[500] select-none rounded-t-md">
+              <button className="w-full flex justify-between items-center h-[100%] pl-10 pb-1 bg-slate-50 font-sans text-lg font-[500] select-none rounded-t-xl">
                 Categories
 
-                {dropDown ?
+                { dropDown ?
                   <IoIosArrowUp size={20} className="absolute right-5 top-5 cursor-pointer" />
                   :
                   <IoIosArrowDown size={20} className="absolute right-5 top-5 cursor-pointer" />
@@ -107,7 +106,7 @@ const Header = ({ activePageIndex }) => {
               <div className="relative mr-[15px] cursor-pointer">
                 <IoHeartOutline size={30} color="rgb(255 255 255 / 83%)" />
                 <span className="absolute left-5 bottom-4 rounded-full text-center font-bold text-[11px] bg-red-500 text-zinc-50 w-5 h-5 leading-tight">
-                  <span className={`${number > 9 ? "left-1" : "right-1.5"} bottom-1 absolute`}>
+                  <span className={`${number > 9 ? "right-[4px]" : "right-[7px]"} top-[3px] absolute`}>
                     {number}
                   </span>
                 </span>
@@ -117,7 +116,7 @@ const Header = ({ activePageIndex }) => {
               <div className="relative mr-[15px] cursor-pointer">
                 <BiShoppingBag size={30} color="rgb(255 255 255 / 83%)" />
                 <span className="absolute left-5 bottom-4 rounded-full text-center font-bold text-[11px] bg-red-500 text-zinc-50 w-5 h-5 leading-tight">
-                  <span className={`${number > 9 ? "left-1" : "right-1.5"} bottom-1 absolute`}>
+                  <span className={`${number > 9 ? "right-[4px]" : "right-[7px]"} top-[3px] absolute`}>
                     {number}
                   </span>
                 </span>
