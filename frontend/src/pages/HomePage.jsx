@@ -1,5 +1,6 @@
-import Header from '../components/Layout/Header'
-import Hero from '../components/Route/Hero/Hero'
+import Header from "../components/Layout/Header"
+import Hero from "../components/Route/Hero/Hero"
+import Categories from "../components/Route/Categories/Categories"
 
 
 const HomePage = () => {
@@ -7,6 +8,7 @@ const HomePage = () => {
     <div>
       <Header activePageIndex={1} />
       <Hero />
+      <Categories />
     </div>
   )
 }

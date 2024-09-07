@@ -14,7 +14,7 @@ const DropDownMenu = ({ categories, setDropDown }) => {
         { categories && categories.map((category, index) => (
             <div key={index} onClick={() => submitHandler(category)} className="flex items-center">
                 <img 
-                    src={category.image[0].url} 
+                    src={category.image} 
                     alt={category.productName} 
                     style={{
                         width: "25px",

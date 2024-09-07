@@ -32,7 +32,7 @@ const Header = ({ activePageIndex }) => {
     }
   })
 
-  const number = 99
+  const number = 69
 
   return (
     <>
@@ -106,7 +106,7 @@ const Header = ({ activePageIndex }) => {
               <div className="relative mr-[15px] cursor-pointer">
                 <IoHeartOutline size={30} color="rgb(255 255 255 / 83%)" />
                 <span className="absolute left-5 bottom-4 rounded-full text-center font-bold text-[11px] bg-red-500 text-zinc-50 w-5 h-5 leading-tight">
-                  <span className={`${number > 9 ? "right-[4px]" : "right-[7px]"} top-[3px] absolute`}>
+                  <span className={`${number > 9 ? "right-[3.5px]" : "right-[6.5px]"} top-[3px] absolute`}>
                     {number}
                   </span>
                 </span>
@@ -116,7 +116,7 @@ const Header = ({ activePageIndex }) => {
               <div className="relative mr-[15px] cursor-pointer">
                 <BiShoppingBag size={30} color="rgb(255 255 255 / 83%)" />
                 <span className="absolute left-5 bottom-4 rounded-full text-center font-bold text-[11px] bg-red-500 text-zinc-50 w-5 h-5 leading-tight">
-                  <span className={`${number > 9 ? "right-[4px]" : "right-[7px]"} top-[3px] absolute`}>
+                  <span className={`${number > 9 ? "right-[3.5px]" : "right-[6.5px]"} top-[3px] absolute`}>
                     {number}
                   </span>
                 </span>
