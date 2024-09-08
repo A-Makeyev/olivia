@@ -4,3 +4,5 @@ export const createUserUrl = api + '/user/create'
 export const activateUserUrl = api + '/user/activation'
 export const authenticateUserUrl = api + '/user/authenticate'
 export const loginUserUrl = api + '/user/login'
+
+export const currency = '$'

@@ -21,7 +21,8 @@ const DropDownMenu = ({ categories, setDropDown }) => {
                         height: "25px",
                         marginLeft: "10px",
                         userSelect: "none",
-                        objectFit: "contain"
+                        objectFit: "contain",
+                        borderRadius: "0.5rem"
                     }}
                 />
                 <h3 className="m-3 select-none cursor-pointer">

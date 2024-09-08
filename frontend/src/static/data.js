@@ -228,14 +228,13 @@ export const navItems = [
       id: 6,
       title: "Gifts",
       subTitle: "",
-      image:
-        "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+      image: "https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       id: 7,
       title: "Pet Care",
       subTitle: "",
-      image: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
+      image: "https://images.pexels.com/photos/1981111/pexels-photo-1981111.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       id: 8,
@@ -271,15 +270,15 @@ export const navItems = [
       image: [
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         },
         {
           public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+          url: "https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg",
         },
       ],
       shop: {
-        name: "Apple inc.",
+        name: "Apple Inc",
         shop_avatar: {
           public_id: "test",
           url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
@@ -289,7 +288,7 @@ export const navItems = [
       price: 1099,
       discount_price: 1049,
       rating: 4,
-      total_sell: 35,
+      total_sold: 35,
       stock: 10,
     },
     {
@@ -318,37 +317,7 @@ export const navItems = [
       },
       discount_price: 1099,
       rating: 5,
-      total_sell: 80,
-      stock: 10,
-    },
-    {
-      id: 1,
-      category:"Computers and Laptop",
-      name: "MacBook pro M2 chipset 256gb ssd 8gb ram space gray color with apple 1 year warranty",
-      description:
-        "Product details are a crucial part of any eCommerce website or online marketplace. These details help the potential customers to make an informed decision about the product they are interested in buying. A well-written product description can also be a powerful marketing tool that can help to increase sales.Product details typically include information about the product's features, specifications, dimensions, weight, materials, and other relevant information that can help customers to understand the product better. The product details section should also include high-quality images and videos of the product, as well as customer reviews and ratings.",
-      image: [
-        {
-          public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
-        },
-        {
-          public_id: "test",
-          url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
-        },
-      ],
-      shop: {
-        name: "Apple inc.",
-        shop_avatar: {
-          public_id: "test",
-          url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
-        },
-        ratings: 4.2,
-      },
-      price: 1099,
-      discount_price: 1049,
-      rating: 4,
-      total_sell: 75,
+      total_sold: 80,
       stock: 10,
     },
     {
@@ -378,7 +347,7 @@ export const navItems = [
       price: 100,
       discount_price: 79,
       rating: 4,
-      total_sell: 12,
+      total_sold: 12,
       stock: 10,
     },
     {
@@ -390,11 +359,11 @@ export const navItems = [
       image: [
         {
           public_id: "test",
-          url: "https://mirzacdns3.s3.ap-south-1.amazonaws.com/cache/catalog/RLV0015/2-800x800.jpg",
+          url: "https://images.pexels.com/photos/3270223/pexels-photo-3270223.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         },
         {
           public_id: "test",
-          url: "https://mirzacdns3.s3.ap-south-1.amazonaws.com/cache/catalog/RLV0015/2-800x800.jpg",
+          url: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         },
       ],
       shop: {
@@ -408,7 +377,7 @@ export const navItems = [
       price: 120,
       discount_price: 89,
       rating: 5,
-      total_sell: 49,
+      total_sold: 49,
       stock: 10
     },
     {
@@ -420,11 +389,11 @@ export const navItems = [
       image: [
         {
           public_id: "test",
-          url: "https://www.startech.com.bd/image/cache/catalog/headphone/havit/h763d/h763d-02-500x500.jpg",
+          url: "https://images.pexels.com/photos/844923/pexels-photo-844923.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         },
         {
           public_id: "test",
-          url: "https://eratablet.com/wp-content/uploads/2022/08/H51ba6537405f4948972e293927673546u.jpg",
+          url: "https://images.pexels.com/photos/3587496/pexels-photo-3587496.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         },
       ],
       shop: {
@@ -447,7 +416,7 @@ export const navItems = [
           rating: 5,
         },
       ],
-      total_sell: 20,
+      total_sold: 20,
       stock: 10
     },
     {
@@ -476,7 +445,7 @@ export const navItems = [
       price: 100,
       discount_price: 79,
       rating: 4,
-      total_sell: 62,
+      total_sold: 62,
       stock: 10,
     },
     {
@@ -514,7 +483,7 @@ export const navItems = [
           rating: 5,
         },
       ],
-      total_sell: 20,
+      total_sold: 20,
       stock: 10,
     },
     {
@@ -543,7 +512,7 @@ export const navItems = [
       },
       discount_price: 1099,
       rating: 5,
-      total_sell: 20,
+      total_sold: 20,
       stock: 10,
     },
     {
@@ -582,7 +551,7 @@ export const navItems = [
           rating: 5,
         },
       ],
-      total_sell: 20,
+      total_sold: 20,
       stock: 10,
     },
   ];
