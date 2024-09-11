@@ -46,7 +46,7 @@ const Header = ({ activePageIndex }) => {
           <div className="w-[50%] relative">
             <input
               type="text"
-              placeholder="Search Product.."
+              placeholder="Search product.."
               className="h-[40px] w-full px-2 border-[2px] border-slate-500 rounded-md p-5"
               onChange={handleSearch}
               value={searchTerm}
@@ -54,7 +54,8 @@ const Header = ({ activePageIndex }) => {
             <IoSearch size={30} className="absolute right-2 top-1.5 cursor-pointer" />
             {searchData && searchData.length !== 0 && (
               <div className="w-full absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4 rounded-b-xl shadow-xl">
-                {searchData && searchData.map((data, index) => {
+                
+                { searchData && searchData.map((data, index) => {
                   const productName = data.name.replace(/\s+/g, '-')
                   return (
                     <Link to={`/product/${productName}`} key={index}>
@@ -65,6 +66,7 @@ const Header = ({ activePageIndex }) => {
                     </Link>
                   )
                 })}
+
               </div>
             )}
           </div>
@@ -103,27 +105,27 @@ const Header = ({ activePageIndex }) => {
           </div>
           <div className="flex">
             <div className="flex items-center">
-              <div className="relative mr-[15px] cursor-pointer">
+              <div className="relative mr-[15px] cursor-pointer" tooltip="wishlist">
                 <IoHeartOutline size={30} color="rgb(255 255 255 / 83%)" />
                 <span className="absolute left-5 bottom-4 rounded-full text-center font-bold text-[11px] bg-red-500 text-zinc-50 w-5 h-5 leading-tight">
                   <span className={`${number > 9 ? "right-[3.5px]" : "right-[6.5px]"} top-[3px] absolute`}>
-                    {number}
+                    { number }
                   </span>
                 </span>
               </div>
             </div>
             <div className="flex items-center">
-              <div className="relative mr-[15px] cursor-pointer">
-                <BiShoppingBag size={30} color="rgb(255 255 255 / 83%)" />
+              <div className="relative mr-[15px] cursor-pointer" tooltip="cart">
+                <BiShoppingBag size={30} color="rgb(255 255 255 / 83%)"  />
                 <span className="absolute left-5 bottom-4 rounded-full text-center font-bold text-[11px] bg-red-500 text-zinc-50 w-5 h-5 leading-tight">
                   <span className={`${number > 9 ? "right-[3.5px]" : "right-[6.5px]"} top-[3px] absolute`}>
-                    {number}
+                    { number }
                   </span>
                 </span>
               </div>
             </div>
             <div className="flex items-center">
-              <div className="relative mr-[15px] cursor-pointer">
+              <div className="relative mr-[15px] cursor-pointer" tooltip="profile">
                 <Link to="/login">
                   <BiUserCircle size={30} color="rgb(255 255 255 / 83%)" />
                 </Link>

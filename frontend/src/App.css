@@ -5,6 +5,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root {
+  --black: #0C131A;
+  --white: #EEf1FF;
+  --red: #AC0025;
+  --gray: #666666;
+  --purple: #939DED;
+  --soft-gray: #D3D3D3;
+  --soft-purple: #EEF1FF;
+}
+
 * {
   scroll-behavior: smooth;
 }
@@ -21,6 +31,33 @@ body {
 
 input, select {
   outline: none;
+}
+
+[tooltip]:before {
+  content: attr(tooltip);
+  border: 1px solid var(--soft-gray);
+  transition: all 0.25s ease;
+  text-transform: capitalize;
+  color: var(--gray);
+  border-radius: 10px;
+  position: absolute;
+  text-align: center;
+  font-size: medium;
+  font-weight: 400;
+  z-index: 999;
+  padding: 5px;
+  width: 80px;
+  opacity: 0;
+}
+
+[tooltip]:hover:before {
+  background: var(--white);
+  margin: 45px 0 0 -25px;
+  opacity: 1;
+}
+
+[tooltip]:not([tooltip-persistent]):before {
+  pointer-events: none;
 }
 
 .batch_heart{

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const Hero = () => {
   return (
     <div 
-        className="flex items-center relative min-h-[70vh] 800px:min-h-[80vh] w-full bg-no-repeat"
+        className="flex items-center relative min-h-[70vh] 800px:min-h-[90vh] w-full bg-no-repeat"
         style={{
             background: "linear-gradient(170deg, #F9FCFF, #99A9FF)"
         }}
