@@ -21,12 +21,14 @@ const Header = ({ activePageIndex }) => {
     const filteredProducts = products && products.filter((product) =>
       product.name.toLocaleLowerCase().includes(term.toLocaleLowerCase())
     )
+    
     setSearchData(filteredProducts)
   }
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 70) {
       setActive(true)
+      setSearchTerm('')
     } else {
       setActive(false)
     }
@@ -52,16 +54,17 @@ const Header = ({ activePageIndex }) => {
               value={searchTerm}
             />
             <IoSearch size={30} className="absolute right-2 top-1.5 cursor-pointer" />
-            { searchData && searchData.length !== 0 && (
-              <div className="w-full absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] rounded-b-xl shadow-xl">
+
+            { searchTerm.trim() && searchData && searchData.length !== 0 && (
+              <div className="w-full absolute bg-slate-50 z-[9] rounded-b-xl shadow-xl">
                 
                 { searchData && searchData.map((data, index) => {
                   const productName = data.name.replace(/\s+/g, '-')
                   return (
                     <Link to={`/product/${productName}`} key={index}>
-                      <div className={`${searchData.length === index + 1 && "border-b-0 rounded-b-xl"} border-b-2 w-full flex items-start-py-3 p-3 hover:bg-slate-100 transition`}>
+                      <div className={`${searchData.length === index + 1 && "border-b-0 rounded-b-xl"} border-b-2 w-full flex items-start p-3 hover:bg-slate-100 transition`}>
                         <img src={data.image[0].url} alt={productName} className="object-cover w-[90px] h-[90px] mr-[35px] rounded-lg" />
-                        <h1 className="text-lg font-Roboto">
+                        <h1 className="text-lg font-Roboto py-4 pr-1">
                           { data.name }
                         </h1>
                       </div>
@@ -71,6 +74,7 @@ const Header = ({ activePageIndex }) => {
 
               </div>
             )}
+
           </div>
           <div className="w-[150px] h-[50px] my-3 flex items-center justify-center bg-slate-900 hover:bg-slate-800 transition rounded-xl cursor-pointer">
             <Link to="/seller">
@@ -86,7 +90,7 @@ const Header = ({ activePageIndex }) => {
           <div>
             <div onClick={() => setDropDown(!dropDown)} className="hidden relative h-[60px] mt-[10px] w-[260px] lg:block">
               <BiMenuAltLeft size={30} className="absolute top-3 left-2 cursor-pointer" />
-              <button className="w-full flex justify-between items-center h-[100%] pl-10 pb-1 bg-slate-50 font-sans text-lg font-[500] select-none rounded-t-xl">
+              <button className="w-full flex justify-between items-center h-[100%] pl-10 pb-1 font-sans text-lg font-[500] select-none rounded-t-xl bg-slate-50 hover:bg-slate-100 transition">
                 Categories
 
                 { dropDown ?

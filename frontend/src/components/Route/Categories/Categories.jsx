@@ -9,9 +9,12 @@ const Categories = () => {
     <>
         <div className="w-11/12 mx-auto sm:block hidden">
             <div className="flex justify-between w-full p-5 my-12 bg-white shadow-sm rounded-md">
+
                 { branding && branding.map((brand, index) => (
                     <div key={index} className="flex items-start">
-                        { brand.icon }
+                        <div className="mt-1">
+                            { brand.icon }
+                        </div>
                         <div className="px-3">
                             <h3 className="font-bold text-sm md:text-base">
                                 { brand.title }
@@ -22,10 +25,12 @@ const Categories = () => {
                         </div>
                     </div>
                 ))}
+
             </div>
         </div>
         <div id="categories" className="w-11/12 mx-auto bg-white p-6 mb-12 rounded-lg">
             <div className="grid grid-cols-1 gap-[5px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl:grid-cols-5 xl:gap-[30px]">
+
                 { categories && categories.map((category, index) => {
                     const handleSubmit = (category) => {
                         navigate(`/products?category=${category.title}`)
@@ -44,6 +49,7 @@ const Categories = () => {
                         </div>
                     )
                 })}
+                
             </div>
         </div>
     </>

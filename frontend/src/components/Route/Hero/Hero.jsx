@@ -4,10 +4,8 @@ import { Link } from "react-router-dom"
 const Hero = () => {
   return (
     <div 
+        style={{ background: "linear-gradient(170deg, #F9FCFF, #99A9FF)" }}
         className="flex items-center relative min-h-[70vh] 800px:min-h-[90vh] w-full bg-no-repeat"
-        style={{
-            background: "linear-gradient(170deg, #F9FCFF, #99A9FF)"
-        }}
     >
         <div className="w-11/12 mx-auto 800px:w-[60%] min-h-[60vh]">
             <h1 className="text-[35px] leading-[1.2] 800px:text-[60px] text-slate-800 font-[600] capitalize">

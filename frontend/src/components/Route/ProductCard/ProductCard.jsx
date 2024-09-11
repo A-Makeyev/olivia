@@ -21,14 +21,13 @@ const ProductCard = ({ data }) => {
                     <img src={data.image[0].url} alt={productName} className="object-cover w-full h-[250px] pr-8 hover:opacity-95 transition" />
                 </Link>
                 <Link to="/">
-                    <h2 className="pt-3 ml-1 font-[600] underline underline-offset-4">
+                    <h2 className="pt-3 ml-1 font-[600] underline underline-offset-2">
                         { data.shop.name }
                     </h2>
                 </Link>
-                {/* <div className="p-[1px] w-5 "></div> */}
                 <div>
-                    <h4 className="py-3 ml-1 text-[14px] font-[500] h-[95px]">
-                        { data.name.length > 100 ? data.name.slice(0, 100) + '...' : data.name}
+                    <h4 className="py-3 ml-1 text-[14px] font-[500] h-[105px]">
+                        { data.name.length > 150 ? data.name.slice(0, 150) + '...' : data.name}
                     </h4>
                 </div>
                 <div className="flex items-center justify-between py-2 ml-1">
