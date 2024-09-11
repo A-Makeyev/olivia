@@ -10,9 +10,13 @@ const DropDownMenu = ({ categories, setDropDown }) => {
     } 
 
   return (
-    <div className="absolute pb-4 w-[260px] bg-slate-50 z-30 rounded-b-xl shadow-xl">
+    <div className="absolute w-[260px] bg-slate-50 z-30 rounded-b-xl shadow-xl">
         { categories && categories.map((category, index) => (
-            <div key={index} onClick={() => submitHandler(category)} className="flex items-center">
+            <div 
+                key={index} 
+                onClick={() => submitHandler(category)} 
+                className={`${categories.length === index + 1 && "border-b-0 rounded-b-xl"} border-b-2 flex items-center py-2 cursor-pointer hover:bg-slate-100 transition`}
+            >
                 <img 
                     src={category.image} 
                     alt={category.productName} 
@@ -21,11 +25,11 @@ const DropDownMenu = ({ categories, setDropDown }) => {
                         height: "25px",
                         marginLeft: "10px",
                         userSelect: "none",
-                        objectFit: "contain",
+                        objectFit: "cover",
                         borderRadius: "0.5rem"
                     }}
                 />
-                <h3 className="m-3 select-none cursor-pointer">
+                <h3 className="m-3 font-Roboto select-none">
                     { category.title }
                 </h3>
             </div>

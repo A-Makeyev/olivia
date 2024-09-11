@@ -52,16 +52,18 @@ const Header = ({ activePageIndex }) => {
               value={searchTerm}
             />
             <IoSearch size={30} className="absolute right-2 top-1.5 cursor-pointer" />
-            {searchData && searchData.length !== 0 && (
-              <div className="w-full absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4 rounded-b-xl shadow-xl">
+            { searchData && searchData.length !== 0 && (
+              <div className="w-full absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] rounded-b-xl shadow-xl">
                 
                 { searchData && searchData.map((data, index) => {
                   const productName = data.name.replace(/\s+/g, '-')
                   return (
                     <Link to={`/product/${productName}`} key={index}>
-                      <div className="w-full flex items-start-py-3">
-                        <img src={data.image[0].url} alt={productName} className="w-[90px] h-[90px] mr-[35px]" />
-                        <h1>{data.name}</h1>
+                      <div className={`${searchData.length === index + 1 && "border-b-0 rounded-b-xl"} border-b-2 w-full flex items-start-py-3 p-3 hover:bg-slate-100 transition`}>
+                        <img src={data.image[0].url} alt={productName} className="object-cover w-[90px] h-[90px] mr-[35px] rounded-lg" />
+                        <h1 className="text-lg font-Roboto">
+                          { data.name }
+                        </h1>
                       </div>
                     </Link>
                   )
@@ -79,7 +81,7 @@ const Header = ({ activePageIndex }) => {
           </div>
         </div>
       </div>
-      <div className={`${active && "shadow-sm fixed top-0 left-0 z-10"} hidden w-full bg-indigo-400 h-[70px] 800px:flex items-center justify-between transition`}>
+      <div className={`${active && "fixed top-0 left-0 z-10 shadow-md"} hidden w-full bg-indigo-400 h-[70px] 800px:flex items-center justify-between transition`}>
         <div className="w-11/12 mx-auto relative flex items-center justify-between">
           <div>
             <div onClick={() => setDropDown(!dropDown)} className="hidden relative h-[60px] mt-[10px] w-[260px] lg:block">
