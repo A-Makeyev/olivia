@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { RxCross2 } from "react-icons/rx"
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io"
 import { BiMessageDetail, BiShoppingBag } from "react-icons/bi"
@@ -19,7 +20,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
             { data && (
                 <div className="flex items-center justify-center h-screen fixed w-full top-0 left-0 bg-slate-900 bg-opacity-60 z-40">
-                    <div className="relative overflow-y-auto w-[90%] 800px:w-[60%] 800px:h-[75vh] h-[90vh] p-4 bg-white rounded-lg shadow-lg">
+                    <div className="relative overflow-y-auto w-[90%] 800px:w-[70%] 800px:h-[75vh] h-[90vh] p-4 bg-white rounded-lg shadow-lg">
                         <RxCross2 
                             size={30} 
                             onClick={() => setOpen(false)} 
@@ -27,13 +28,19 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                         />
                         <div className="block w-full 1300px:flex">
                             <div className="block w-full 1300px:w-[50%]">
-                                <img src={data.image[0].url} alt={data.name} className="object-cover p-5 mt-7" />
-                                <div className="flex pl-5">
-                                    <img src={data.shop.image.url} alt={data.shop.name} className="object-fill w-[50px] h-[50px] mr-4 mt-3 rounded-full" />
-                                    <div className="">
-                                        <h3 className="pt-3 text-[15px] font-[600]">
-                                            { data.shop.name }
-                                        </h3>
+                                <div className="flex justify-center h-[450px]">
+                                    <img src={data.image[0].url} alt={data.name} className="object-cover h-[100%] p-5 mt-7" />
+                                </div>
+                                <div className="flex pl-5 mt-5">
+                                    <Link to={``}>
+                                        <img src={data.shop.image.url} alt={data.shop.name} className="object-fill w-[50px] h-[50px] mr-4 mt-3 rounded-full" />
+                                    </Link>
+                                    <div>
+                                        <Link to={``}>
+                                            <h3 className="pt-3 text-[15px] font-[600]">
+                                                { data.shop.name }
+                                            </h3>
+                                        </Link>
                                         <h5 className="text-[15px]">
                                             ({ data.shop.ratings }) Ratings
                                         </h5>
@@ -46,12 +53,12 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                     >
                                         <span className="text-slate-50 flex items-center">
                                             <BiMessageDetail size={20} className="mr-1 mt-1" /> 
-                                            Send Message 
+                                            Contact Seller 
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full 800px:w-[50%] pt-5 pl-[5px] pr-[5px]">
+                            <div className="w-full 1300px:w-[50%] pt-5 pl-[5px] pr-[5px]">
                                 <h1 className="text-[25px] font-[600] font-Roboto text-slate-800 py-5 pr-5">
                                     { data.name }
                                 </h1>
@@ -71,26 +78,25 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                     <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} mt-1 ml-16 font-bold text-[15px] font-Roboto`}>
                                         { data.stock === 1 ? 'Last one' : (data.stock <= 5 && data.stock > 1) ? `Only ${data.stock} left` :  '' } 
                                     </h4>
-                                    <h5 className="font-bold text-slate-800 text-[15px] font-Roboto mt-1 ml-16">
-                                        { data.total_sold } Sold
-                                    </h5>
                                 </div>
                                 <div className="flex items-center justify-start">
                                     <div>
                                         <button
+                                            disabled={count === 1}
                                             onClick={() => { count > 1 && setCount(count - 1) }}
-                                            className="bg-gradient-to-r from-teal-400 to-teal-500 text-slate-50 font-bold
-                                            px-3 py-1 hover:opacity-75 transition duration-200 ease-in-out"
+                                            className={`${count === 1 ? "cursor-not-allowed" : "hover:opacity-75 transition duration-200 ease-in-out"} 
+                                            bg-gradient-to-l from-teal-400 to-teal-500 text-slate-50 font-bold px-3 py-1`}
                                         >
                                             -
                                         </button>
-                                        <span className="bg-slate-200 text-slate-900 font-medium px-4 pt-[5px] pb-[6px]">
+                                        <span className="bg-slate-200 text-slate-900 font-bold px-4 pt-[5px] pb-[6px]">
                                             { count }
                                         </span>
                                         <button
+                                            disabled={count === data.stock}
                                             onClick={() => setCount(count + 1)}
-                                            className="bg-gradient-to-l from-teal-400 to-teal-500 text-slate-50 font-bold
-                                            px-3 py-1 hover:opacity-75 transition duration-200 ease-in-out"
+                                            className={`${count === data.stock ? "cursor-not-allowed" : "hover:opacity-75 transition duration-200 ease-in-out"} 
+                                            bg-gradient-to-l from-teal-400 to-teal-500 text-slate-50 font-bold px-3 py-1`}
                                         >
                                             +
                                         </button>

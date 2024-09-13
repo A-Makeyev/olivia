@@ -21,7 +21,7 @@ const ProductCard = ({ data }) => {
                 <Link to={`/product/${productName}`}>
                     <img src={data.image[0].url} alt={data.name} className="object-cover w-full h-[250px] pr-8 hover:opacity-95 transition" />
                 </Link>
-                <Link to="/">
+                <Link to={`/`}>
                     <h2 className="pt-3 ml-1 font-[600] underline underline-offset-2">
                         { data.shop.name }
                     </h2>
