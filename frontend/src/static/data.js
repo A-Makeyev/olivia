@@ -279,7 +279,7 @@ export const products = [
     ],
     shop: {
       name: "Apple Inc",
-      shop_avatar: {
+      image: {
         public_id: "test",
         url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
       },
@@ -309,7 +309,7 @@ export const products = [
     ],
     shop: {
       name: "Alisha Shoes Mart",
-      shop_avatar: {
+      image: {
         public_id: "test",
         url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
       },
@@ -339,7 +339,7 @@ export const products = [
     ],
     shop: {
       name: "Asus Ltd",
-      shop_avatar: {
+      image: {
         public_id: "test",
         url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
       },
@@ -377,7 +377,7 @@ export const products = [
     ],
     shop: {
       name: "Shahriar Watch House",
-      shop_avatar: {
+      image: {
         public_id: "test",
         url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
       },
@@ -407,7 +407,7 @@ export const products = [
     ],
     shop: {
       name: "Apple",
-      shop_avatar: {
+      image: {
         public_id: "test",
         url: "https://www.hatchwise.com/wp-content/uploads/2022/05/amazon-logo-1024x683.png",
       },

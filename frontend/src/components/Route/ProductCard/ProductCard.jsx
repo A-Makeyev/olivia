@@ -5,6 +5,7 @@ import { BiShoppingBag } from "react-icons/bi"
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io"
 import { AiFillStar, AiOutlineStar } from "react-icons/ai"
 import { currency } from "../../../constants"
+import ProductDetailsCard from "../ProductDetailsCard/ProductDetailsCard"
 
 
 const ProductCard = ({ data }) => {
@@ -18,7 +19,7 @@ const ProductCard = ({ data }) => {
             <div className="w-full h-[490px] bg-white p-3 relative rounded-lg shadow-lg">
                 <div className="flex justify-end"></div>
                 <Link to={`/product/${productName}`}>
-                    <img src={data.image[0].url} alt={productName} className="object-cover w-full h-[250px] pr-8 hover:opacity-95 transition" />
+                    <img src={data.image[0].url} alt={data.name} className="object-cover w-full h-[250px] pr-8 hover:opacity-95 transition" />
                 </Link>
                 <Link to="/">
                     <h2 className="pt-3 ml-1 font-[600] underline underline-offset-2">
@@ -32,13 +33,13 @@ const ProductCard = ({ data }) => {
                 </div>
                 <div className="flex items-center justify-between py-2 ml-1">
                     <div className="flex">
-                        <h4 className="font-bold text-[18px] text-slate-800 font-Roboto">
+                        <h4 className="font-bold text-[20px] text-slate-800 font-Roboto">
                             { data.price === 0 ? data.price : data.discount_price } 
                             <span className="text-[16px]">
                                 { currency }
                             </span>
                         </h4>
-                        <h4 className="font-bold text-[18px] mt-[0.5px] pl-3 text-red-600 font-Roboto line-through">
+                        <h4 className="font-bold text-[20px] mt-[0.5px] pl-3 text-red-600 font-Roboto line-through">
                             { data.price && data.price + currency } 
                         </h4>
                     </div>
@@ -93,6 +94,11 @@ const ProductCard = ({ data }) => {
                         onClick={() => setOpen(!open)}
                         className="absolute right-2 top-36 cursor-pointer hover:scale-125 transition"
                     />
+
+                    { open && (
+                        <ProductDetailsCard setOpen={setOpen} data={data} />
+                    )}
+
                 </div>
             </div>
         </>

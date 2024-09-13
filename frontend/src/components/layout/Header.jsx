@@ -63,7 +63,7 @@ const Header = ({ activePageIndex }) => {
                   return (
                     <Link to={`/product/${productName}`} key={index}>
                       <div className={`${searchData.length === index + 1 && "border-b-0 rounded-b-xl"} border-b-2 w-full flex items-start p-3 hover:bg-slate-100 transition`}>
-                        <img src={data.image[0].url} alt={productName} className="object-cover w-[90px] h-[90px] mr-[35px] rounded-lg" />
+                        <img src={data.image[0].url} alt={data.name} className="object-cover w-[90px] h-[90px] mr-[35px] rounded-lg" />
                         <h1 className="text-lg font-Roboto py-4 pr-1">
                           { data.name }
                         </h1>

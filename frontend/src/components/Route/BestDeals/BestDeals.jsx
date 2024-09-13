@@ -17,7 +17,7 @@ const BestDeals = () => {
             <div className="text-center font-Roboto font-[600] text-[27px] pb-[20px] md:text-start">
                 <h1>Best Deals</h1>
             </div>
-            <div className="grid grid-cols-1 gap-[15px] md:grid-cols-2 md:gap-[15px] lg:grid-cols-3 lg:gap-[15px] 2xl:grid-cols-4 2xl:gap-[15px] 3xl:grid-cols-5 3xl:gap-[15px]">
+            <div className="grid grid-cols-1 gap-[15px] md:grid-cols-2 md:gap-[15px] lg:grid-cols-3 lg:gap-[15px] 2xl:grid-cols-4 2xl:gap-[15px] 3xl:grid-cols-5 3xl:gap-[15px] mb-12">
 
             { data && data.map((deal, index) => (
                 <ProductCard data={deal} key={index} />
