@@ -35,7 +35,7 @@ const ProductCard = ({ data }) => {
                     <div className="flex">
                         <h4 className="font-bold text-[20px] text-slate-800 font-Roboto">
                             { data.price === 0 ? data.price : data.discount_price } 
-                            <span className="text-[16px]">
+                            <span className="text-[18px]">
                                 { currency }
                             </span>
                         </h4>
@@ -58,7 +58,7 @@ const ProductCard = ({ data }) => {
                             Reviews
                         </h4>
                     </div>
-                    <span className="font-[500] text-[15px]">
+                    <span className="font-bold font-Roboto text-[15px]">
                         { data.total_sold && data.total_sold + ' sold ' } 
                     </span>
                 </div>
