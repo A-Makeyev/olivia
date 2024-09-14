@@ -42,7 +42,7 @@ const SignUp = () => {
         setAvatar()
         setloading(false)
         toast(res.data.message, {
-          className: 'bg-c text-zinc-50'
+          className: 'bg-green-500 text-zinc-50'
         })
       }
     }).catch((err) => {

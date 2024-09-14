@@ -75,7 +75,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                     <h3 className="font-bold text-[20px] mt-[0.5px] pl-3 text-red-600 font-Roboto line-through">
                                         { data.price && data.price + currency } 
                                     </h3>
-                                    <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} mt-1 ml-16 font-bold text-[15px] font-Roboto`}>
+                                    <h4 className={`${data.stock === 1 ? "text-red-600 ml-20" : "text-slate-800 ml-16"} mt-1 font-bold text-[18px] font-Roboto`}>
                                         { data.stock === 1 ? 'Last one' : (data.stock <= 5 && data.stock > 1) ? `Only ${data.stock} left` :  '' } 
                                     </h4>
                                 </div>
@@ -101,7 +101,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                             +
                                         </button>
                                     </div>  
-                                    <div className="w-[150px] h-[50px] my-3 ml-5 flex items-center justify-center bg-slate-900 hover:bg-slate-800 transition rounded-xl cursor-pointer">
+                                    <div className="w-[150px] h-[50px] my-3 ml-6 flex items-center justify-center bg-slate-900 hover:bg-slate-800 transition rounded-xl cursor-pointer">
                                         <span className="text-slate-50 flex items-center">
                                             <BiShoppingBag size={25} className="mr-1 mb-1" />
                                             Add To Cart 
