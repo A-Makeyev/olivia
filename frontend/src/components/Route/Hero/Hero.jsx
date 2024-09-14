@@ -18,7 +18,7 @@ const Hero = () => {
             </p>
             <Link to="/products" className="inline-block mt-5">
                 <div className="w-[150px] h-[50px] my-3 flex items-center justify-center bg-slate-900 hover:bg-slate-800 transition rounded-xl cursor-pointer">
-                    <span className="text-zinc-50  font-[Poppins] text-[18px]">
+                    <span className="text-zinc-50  font-semibold text-[15px]">
                         Shop Now
                     </span>
                 </div>

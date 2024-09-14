@@ -78,7 +78,7 @@ const Header = ({ activePageIndex }) => {
           </div>
           <div className="w-[150px] h-[50px] my-3 flex items-center justify-center bg-slate-900 hover:bg-slate-800 transition rounded-xl cursor-pointer">
             <Link to="/seller">
-              <h1 className="flex items-center font-semibold text-zinc-50">
+              <h1 className="flex items-center font-semibold text-[15px] text-zinc-50">
                 Become a seller
               </h1>
             </Link>

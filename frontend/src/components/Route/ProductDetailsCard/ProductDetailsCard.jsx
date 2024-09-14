@@ -51,8 +51,8 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         onClick={handleMessage}
                                         className="w-[150px] h-[50px] my-3 mt-4 flex items-center justify-center bg-slate-900 hover:bg-slate-800 transition rounded-xl cursor-pointer"
                                     >
-                                        <span className="text-slate-50 flex items-center">
-                                            <BiMessageDetail size={20} className="mr-1 mt-1" /> 
+                                        <span className="text-slate-50 font-semibold text-[15px] flex items-center">
+                                            <BiMessageDetail size={20} className="mr-1 mt-[3px]" /> 
                                             Contact Seller 
                                         </span>
                                     </div>
@@ -65,49 +65,46 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                 <p className="pr-5">
                                     { data.description }
                                 </p>
-                                <div className="flex pt-5">
-                                    <h3 className="font-bold text-[20px] text-slate-800 font-Roboto">
+                                <div className={`${!data.price ? "w-[100px] text-center" : "flex pl-1"} pt-5`}>
+                                    <h3 className="font-bold 400px:text-[20px] text-[18px] text-slate-800 font-Roboto">
                                         { data.price === 0 ? data.price : data.discount_price } 
                                         <span className="text-[18px]">
                                             { currency }
                                         </span>
                                     </h3>
-                                    <h3 className="font-bold text-[20px] mt-[0.5px] pl-3 text-red-600 font-Roboto line-through">
+                                    <h3 className="font-bold 400px:text-[20px] text-[18px] mt-[0.5px] pl-3 text-red-600 font-Roboto line-through">
                                         { data.price && data.price + currency } 
                                     </h3>
-                                    <h4 className={`${data.stock === 1 ? "text-red-600 ml-20" : "text-slate-800 ml-16"} mt-1 font-bold text-[18px] font-Roboto`}>
-                                        { data.stock === 1 ? 'Last one' : (data.stock <= 5 && data.stock > 1) ? `Only ${data.stock} left` :  '' } 
-                                    </h4>
                                 </div>
                                 <div className="flex items-center justify-start">
-                                    <div>
+                                    <div className="w-[120px]">
                                         <button
                                             disabled={count === 1}
                                             onClick={() => { count > 1 && setCount(count - 1) }}
                                             className={`${count === 1 ? "cursor-not-allowed" : "hover:opacity-75 transition duration-200 ease-in-out"} 
-                                            bg-gradient-to-l from-teal-400 to-teal-500 text-slate-50 font-bold px-3 py-1`}
+                                            bg-gradient-to-l from-zinc-300 to-zinc-200 text-slate-950 font-bold 400px:px-3 400px:py-1 px-2 py-1`}
                                         >
                                             -
                                         </button>
-                                        <span className="bg-slate-200 text-slate-900 font-bold px-4 pt-[5px] pb-[6px]">
+                                        <span className="bg-slate-100 text-slate-900 font-bold 400px:px-3 400px:pt-[5px] 400px:pb-[6px] px-[10px] pt-[5px] pb-[6px]">
                                             { count }
                                         </span>
                                         <button
                                             disabled={count === data.stock}
                                             onClick={() => setCount(count + 1)}
                                             className={`${count === data.stock ? "cursor-not-allowed" : "hover:opacity-75 transition duration-200 ease-in-out"} 
-                                            bg-gradient-to-l from-teal-400 to-teal-500 text-slate-50 font-bold px-3 py-1`}
+                                            bg-gradient-to-r from-zinc-300 to-zinc-200 text-slate-950 font-bold 400px:px-3 400px:py-1 px-2 py-1`}
                                         >
                                             +
                                         </button>
                                     </div>  
-                                    <div className="w-[150px] h-[50px] my-3 ml-6 flex items-center justify-center bg-slate-900 hover:bg-slate-800 transition rounded-xl cursor-pointer">
-                                        <span className="text-slate-50 flex items-center">
-                                            <BiShoppingBag size={25} className="mr-1 mb-1" />
+                                    <div className="w-[150px] h-[50px] my-3 flex items-center justify-center bg-slate-900 hover:bg-slate-800 transition rounded-xl cursor-pointer">
+                                        <span className="text-slate-50 font-semibold text-[15px] flex items-center">
+                                            <BiShoppingBag size={20} className="mr-1 mb-[1px]" />
                                             Add To Cart 
                                         </span>
                                     </div> 
-                                    <div className="ml-5">
+                                    <div className="ml-4">
 
                                         { clickable ? (
                                             <IoMdHeart
@@ -129,6 +126,9 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         
                                     </div>
                                 </div>
+                                <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} w-[100px] text-center font-bold 400px:text-[16px] text-[14px] font-Roboto`}>
+                                    { data.stock === 1 ? 'Last one' : (data.stock <= 5 && data.stock > 1) ? `Only ${data.stock} left` :  '' } 
+                                </h4>
                             </div>
                         </div>
                     </div>

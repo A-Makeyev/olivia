@@ -1,4 +1,3 @@
-// navigation 
 export const navItems = [
   {
     title: "Home",
@@ -22,7 +21,7 @@ export const navItems = [
   },
 ];
 
-// branding 
+
 export const branding = [
   {
     id: 1,
@@ -187,7 +186,7 @@ export const branding = [
   },
 ];
 
-// categories 
+
 export const categories = [
   {
     id: 1,
@@ -259,7 +258,6 @@ export const categories = [
   },
 ];
 
-// product 
 export const products = [
   {
     id: 1,
@@ -345,7 +343,6 @@ export const products = [
       },
       ratings: 4.2,
     },
-    price: 300,
     discount_price: 239,
     rating: 4.5,
     reviews: [
@@ -413,10 +410,93 @@ export const products = [
       },
       ratings: 4.2,
     },
+    price: 2000,
     discount_price: 1099,
     rating: 5,
     total_sold: 20,
     stock: 10,
+  },
+  {
+    id: 4,
+    category: "Mobile and Tablets",
+    name: "SAMSUNG Galaxy S22 128 GB",
+    description: "This product has been professionally inspected and tested by Amazon-qualified suppliers. The product may have minimal scratches or dents, and a battery with at least 80% capacity. Box may be generic and accessories may not be original, but will be compatible and fully functional. This product is eligible for a replacement or refund within 90 days of receipt if you are not satisfied.",
+    image: [
+      {
+        public_id: "test",
+        url: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6569/6569875_sd.jpg;maxHeight=2000;maxWidth=2000;format=webp",
+      },
+      {
+        public_id: "test",
+        url: "https://d3m9l0v76dty0.cloudfront.net/system/photos/9681135/extra_large/7a2c69df260ff39fe26a422fa7b52cc7.png",
+      },
+    ],
+    shop: {
+      name: "Samsung",
+      image: {
+        public_id: "test",
+        url: "https://scontent.ftlv10-1.fna.fbcdn.net/v/t39.30808-6/259474090_5355679944459151_9177895425382221203_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=h3q6mLAFV0QQ7kNvgGuEpdL&_nc_ht=scontent.ftlv10-1.fna&_nc_gid=A8bx2eNDYqaHLA1DqGchZe_&oh=00_AYBAw9oOzn5LXNhlMpr7v6NEacgg9uBuFWNWE8BfA6CfKg&oe=66EBBB76",
+      },
+      ratings: 4.2,
+    },
+    price: 900,
+    discount_price: 799,
+    rating: 5,
+    total_sold: 20,
+    stock: 112,
+  },
+  {
+    id: 4,
+    category: "Fighter Jets",
+    name: "F-35 Lightning II advanced fighter jet",
+    description: "he Lockheed Martin F-35 Lightning II is an American family of single-seat, single-engine, stealth multirole combat aircraft designed for air superiority and strike missions; it also has electronic warfare and intelligence, surveillance, and reconnaissance capabilities.",
+    image: [
+      {
+        public_id: "test",
+        url: "https://img.militaryaerospace.com/files/base/ebm/mae/image/2022/01/F_35_5_Jan_2021.61d4a87b3d782.png?auto=format,compress&fit=max&q=45&w=950&width=950",
+      }
+    ],
+    shop: {
+      name: "Lockeed Martin",
+      image: {
+        public_id: "test",
+        url: "https://scontent.ftlv10-1.fna.fbcdn.net/v/t39.30808-6/315539844_495450662617887_540126235509786803_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Sj_tTZCXJvEQ7kNvgGRnGXg&_nc_ht=scontent.ftlv10-1.fna&_nc_gid=AvZvbIlHzXbo9QNTtKeFdKj&oh=00_AYBNw7QBBhaYyuNYCzzOZektbdDSJlOJ4040kLXj3-3aYQ&oe=66EBCD4E",
+      },
+      ratings: 4.2,
+    },
+    discount_price: 1759000,
+    rating: 5,
+    total_sold: 20,
+    stock: 2,
+  },
+  {
+    id: 6,
+    category: "Toys",
+    name: "League of Legends LOL Xayah Rakan Figure Statue Game Official Model Doll Toy 10",
+    description: "for league of legends figure: Xayah Rakan Xayah Rakan: Is there any duo more perfect to be our first DUO figure set Nope - and this feisty couple wouldn't have any other way. Xayah Rakan approximate measurements: 4.8 in / 12.2 cm, Width: 4.3 in / 11.0 cm Delicate And Cute Statue for league of legends Xayah Rakan figures, the high-quality manufacturing process perfectly restores the design of the character. Comes with original box and verification cardthat, can be placed on the desktop and display howcase display Or as Perfect gift for friends. This product is a collector's item intended for ages 14+",
+    image: [
+      {
+        public_id: "test",
+        url: "https://i.ebayimg.com/images/g/sxIAAOSwGGRkCXZy/s-l1600.webp",
+      },
+      {
+        public_id: "test",
+        url: "https://i.ebayimg.com/images/g/N-MAAOSwMlVkCXZz/s-l1600.webp",
+      }
+    ],
+    shop: {
+      name: "Riot",
+      image: {
+        public_id: "test",
+        url: "https://scontent.ftlv10-1.fna.fbcdn.net/v/t39.30808-6/274732413_5046889452021613_2946199601972333203_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=5qa7zQb5I-kQ7kNvgHVvnn2&_nc_ht=scontent.ftlv10-1.fna&_nc_gid=ANv3srhxwxeLzI4MoXNtByn&oh=00_AYAV0XMyayJPaOZTFgXbw_V4bWlNvU10ZRZNUmWfbJb2Bg&oe=66EBD128",
+      },
+      ratings: 4.2,
+    },
+    price: 375,
+    discount_price: 300,
+    rating: 5,
+    total_sold: 20,
+    stock: 2,
   },
 ]
 

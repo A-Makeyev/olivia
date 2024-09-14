@@ -7,7 +7,7 @@ const BestDeals = () => {
     const [data, setData] = useState()
 
     useEffect(() => {
-        const sortedProducts = products && products.sort((a, b) => b.total_sold - a.total_sold).slice(0, 5)
+        const sortedProducts = products && products.sort((a, b) => b.total_sold - a.total_sold).slice(0, 8)
         setData(sortedProducts)
     }, [])
 
