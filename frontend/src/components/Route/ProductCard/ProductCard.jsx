@@ -11,7 +11,6 @@ import ProductDetailsCard from "../ProductDetailsCard/ProductDetailsCard"
 const ProductCard = ({ data }) => {
     const [clickable, setClickable] = useState(false)
     const [open, setOpen] = useState(false)
-
     const productName = data.name.replace(/\s+/g, '-') 
 
     return (

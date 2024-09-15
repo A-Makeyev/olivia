@@ -7,10 +7,10 @@ import { currency } from "../../../constants"
 
 
 const ProductDetailsCard = ({ setOpen, data }) => {
-    const [selectable, setSelectable] = useState(false)
+    // const [selectable, setSelectable] = useState(false)
     const [clickable, setClickable] = useState(false)
     const [count, setCount] = useState(1)
-    
+
     const handleMessage = () => {
 
     }

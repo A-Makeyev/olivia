@@ -287,7 +287,7 @@ export const products = [
     discount_price: 1049,
     rating: 4,
     total_sold: 5,
-    stock: 9,
+    stock: 2,
   },
   {
     id: 5,

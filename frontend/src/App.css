@@ -40,7 +40,7 @@ input, select {
 
 [tooltip]:before {
   content: attr(tooltip);
-  box-shadow: 2px 2px 2px var(--soft-gray);
+  box-shadow: 1px 1px 1px var(--soft-gray);
   transition: all 0.25s ease;
   text-transform: capitalize;
   color: var(--gray);
