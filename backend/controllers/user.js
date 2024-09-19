@@ -1,7 +1,9 @@
 const { upload } = require('../multer')
+const { getFutureDate } = require('../utils/date')
 const { isAuthenticated, isAdmin } = require('../middleware/auth')
 const catchAsyncErrors = require('../middleware/catchAsyncErrors')
 const welcomeEmail = require('../templates/welcomeEmail')
+const generateCouponCode = require('../utils/couponCode')
 const ErrorHandler = require('../utils/ErrorHandler')
 const setToken = require('../utils/jwtToken')
 const sendMail = require('../utils/sendMail')
@@ -62,7 +64,7 @@ router.post('/create', upload.single('file'), async (req, res, next) => {
       await sendMail({
         email: newUser.email,
         subject: 'Activate Your Olivia Account',
-        html: welcomeEmail(newUser.name, activationLink)
+        html: welcomeEmail(newUser.name, activationLink, generateCouponCode(5), getFutureDate(1, 1, 1))
       })
 
       res.status(201).json({

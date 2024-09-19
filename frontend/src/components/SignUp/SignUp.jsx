@@ -114,13 +114,13 @@ const SignUp = () => {
                 />
 
                 {visible ? (
-                  <AiOutlineEye
+                  <AiOutlineEyeInvisible
                     className="absolute right-2 top-2 cursor-pointer"
                     onClick={() => setVisible(false)}
                     size={25}
                   />
                 ) : (
-                  <AiOutlineEyeInvisible
+                  <AiOutlineEye
                     className="absolute right-2 top-2 cursor-pointer"
                     onClick={() => setVisible(true)}
                     size={25}
