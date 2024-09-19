@@ -488,7 +488,7 @@ export const products = [
       name: "Riot",
       image: {
         public_id: "test",
-        url: "https://scontent.ftlv10-1.fna.fbcdn.net/v/t39.30808-6/274732413_5046889452021613_2946199601972333203_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=5qa7zQb5I-kQ7kNvgHVvnn2&_nc_ht=scontent.ftlv10-1.fna&_nc_gid=ANv3srhxwxeLzI4MoXNtByn&oh=00_AYAV0XMyayJPaOZTFgXbw_V4bWlNvU10ZRZNUmWfbJb2Bg&oe=66EBD128",
+        url: "https://scontent.ftlv10-1.fna.fbcdn.net/v/t39.30808-6/274732413_5046889452021613_2946199601972333203_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=KjXFPTmMIYQQ7kNvgEcD_gg&_nc_ht=scontent.ftlv10-1.fna&oh=00_AYA2dpSusxMAnb9PqyfMIaqq-rut7H1w_U1om8wVAhz4RQ&oe=66F1F828",
       },
       ratings: 4.2,
     },
