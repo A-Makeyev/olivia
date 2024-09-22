@@ -8,7 +8,7 @@ const Hero = () => {
         className="flex items-center relative min-h-[70vh] 800px:min-h-[90vh] w-full bg-no-repeat"
     >
         <div className="w-11/12 mx-auto 800px:w-[60%] min-h-[60vh]">
-            <h1 className="text-[35px] leading-[1.2] 800px:text-[60px] text-slate-800 font-[600] capitalize">
+            <h1 className="text-[35px] leading-[1.2] 800px:text-[60px] text-slate-800 font-[600] capitalize drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                 home decoration <br /> collection
             </h1>
             <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-slate-900">
