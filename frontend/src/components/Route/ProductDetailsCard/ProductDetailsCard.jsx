@@ -26,12 +26,12 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                             onClick={() => setOpen(false)} 
                             className="absolute top-3 right-3 z-50 cursor-pointer rounded-full hover:bg-slate-100 transition" 
                         />
-                        <div className="block w-full 1300px:flex">
+                        <div className="block w-full 1300px:flex mt-2">
                             <div className="block w-full 1300px:w-[50%]">
                                 <div className="flex justify-center h-[450px]">
-                                    <img src={data.image[0].url} alt={data.name} className="object-cover h-[100%] p-5 mt-7" />
+                                    <img src={data.image[0].url} alt={data.name} className="object-cover w-full h-[100%] p-5 mt-7" />
                                 </div>
-                                <div className="flex pl-5 mt-5">
+                                <div className="flex pl-5 mt-7">
                                     <Link to={``}>
                                         <img src={data.shop.image.url} alt={data.shop.name} className="object-fill w-[50px] h-[50px] mr-4 mt-3 rounded-full" />
                                     </Link>
@@ -58,13 +58,15 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full 1300px:w-[50%] pt-5 pl-[5px] pr-[5px]">
-                                <h1 className="text-[25px] font-[600] font-Roboto text-slate-800 py-5 pr-5">
-                                    { data.name }
-                                </h1>
-                                <p className="pr-5">
-                                    { data.description }
-                                </p>
+                            <div className="w-full 1300px:w-[50%] pt-7 pl-[5px] pr-[5px]">
+                                <div className="h-[435px] overflow-auto">
+                                    <h1 className="text-[25px] font-[600] font-Roboto text-slate-800 py-5 pr-5">
+                                        { data.name }
+                                    </h1>
+                                    <p className="pr-5">
+                                        { data.description }
+                                    </p>
+                                </div>
                                 <div className={`${!data.price ? "w-[100px] text-center" : "flex pl-1"} pt-5`}>
                                     <h3 className="font-bold 400px:text-[20px] text-[18px] text-slate-800 font-Roboto">
                                         { data.price === 0 ? data.price : data.discount_price } 
