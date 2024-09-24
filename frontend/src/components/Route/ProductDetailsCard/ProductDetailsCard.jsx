@@ -31,7 +31,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                 <div className="flex justify-center h-[450px]">
                                     <img src={data.image[0].url} alt={data.name} className="object-cover w-full h-[100%] p-5 mt-7" />
                                 </div>
-                                <div className="flex pl-5 mt-7">
+                                <div className="flex pl-5 mt-5">
                                     <Link to={``}>
                                         <img src={data.shop.image.url} alt={data.shop.name} className="object-fill w-[50px] h-[50px] mr-4 mt-3 rounded-full" />
                                     </Link>
@@ -59,7 +59,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                 </div>
                             </div>
                             <div className="w-full 1300px:w-[50%] pt-7 pl-[5px] pr-[5px]">
-                                <div className="h-[435px] overflow-auto">
+                                <div className="h-[425px] overflow-auto">
                                     <h1 className="text-[25px] font-[600] font-Roboto text-slate-800 py-5 pr-5">
                                         { data.name }
                                     </h1>
@@ -129,11 +129,11 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-start">
-                                    <span className="font-bold font-Roboto text-[16px] w-[95px] text-center">
+                                    <span className="font-bold font-Roboto text-[16px] w-[100px] text-center">
                                         { data.total_sold && `${data.total_sold} sold` }
                                     </span>
                                     <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} w-[195px] text-center font-bold 400px:text-[16px] text-[14px] font-Roboto`}>
-                                        { data.stock === 1 ? 'Last one' : (data.stock <= 5 && data.stock > 1) ? `Only ${data.stock} left` :  '' } 
+                                        { data.stock === 1 ? 'last one' : (data.stock <= 5 && data.stock > 1) ? `only ${data.stock} left` :  '' } 
                                     </h4>
                                 </div>
                             </div>

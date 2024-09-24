@@ -34,17 +34,9 @@ const EventCard = ({ data }) => {
                         { products[6].price && products[6].price + currency } 
                     </h3>
                 </div>
-                <div>
-                    <h3 className={`${products[6].stock === 1 ? "text-red-600" : "text-slate-800"} font-[600] text-[16px]`}>
-                        { products[6].stock === 1 ? 'Last one' : (products[6].stock <= 5 && products[6].stock > 1) ? `Only ${products[6].stock} left` :  '' } 
-                    </h3>
-                </div>
             </div>
             <div className="flex justify-between">
                 <Countdown />
-                <span className="font-[500] text-[16px]">
-                    { products[6].total_sold } sold
-                </span>
             </div>
             <div className="flex items-center justify-start">
                 <div className="w-[120px]">
@@ -95,6 +87,14 @@ const EventCard = ({ data }) => {
                     )}
                     
                 </div>
+            </div>
+            <div className="flex items-center justify-start">
+                <span className="font-bold font-Roboto text-[16px] w-[100px] text-center">
+                    { products[6].total_sold && `${products[6].total_sold} sold` }
+                </span>
+                <h4 className={`${products[6].stock === 1 ? "text-red-600" : "text-slate-800"} w-[195px] text-center font-bold 400px:text-[16px] text-[14px] font-Roboto`}>
+                    { products[6].stock === 1 ? 'last one' : (products[6].stock <= 5 && products[6].stock > 1) ? `only ${products[6].stock} left` :  '' } 
+                </h4>
             </div>
         </div>
     </div>

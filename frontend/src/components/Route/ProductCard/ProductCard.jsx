@@ -78,7 +78,7 @@ const ProductCard = ({ data }) => {
                         </h4>
                     </div>
                     <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} font-bold text-[15px] font-Roboto`}>
-                        {data.stock === 1 ? 'Last one' : (data.stock <= 5 && data.stock > 1) ? `Only ${data.stock} left` : ''}
+                        {data.stock === 1 ? 'last one' : (data.stock <= 5 && data.stock > 1) ? `only ${data.stock} left` : ''}
                     </h4>
                 </div>
                 <div className="flex items-center justify-between ml-1">

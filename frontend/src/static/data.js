@@ -442,8 +442,7 @@ export const products = [
     price: 900,
     discount_price: 799,
     rating: 5,
-    total_sold: 20,
-    stock: 112,
+    stock: 4,
   },
   {
     id: 4,
