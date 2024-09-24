@@ -128,9 +128,14 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         
                                     </div>
                                 </div>
-                                <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} w-[100px] text-center font-bold 400px:text-[16px] text-[14px] font-Roboto`}>
-                                    { data.stock === 1 ? 'Last one' : (data.stock <= 5 && data.stock > 1) ? `Only ${data.stock} left` :  '' } 
-                                </h4>
+                                <div className="flex items-center justify-start">
+                                    <span className="font-bold font-Roboto text-[16px] w-[95px] text-center">
+                                        { data.total_sold && `${data.total_sold} sold` }
+                                    </span>
+                                    <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} w-[195px] text-center font-bold 400px:text-[16px] text-[14px] font-Roboto`}>
+                                        { data.stock === 1 ? 'Last one' : (data.stock <= 5 && data.stock > 1) ? `Only ${data.stock} left` :  '' } 
+                                    </h4>
+                                </div>
                             </div>
                         </div>
                     </div>

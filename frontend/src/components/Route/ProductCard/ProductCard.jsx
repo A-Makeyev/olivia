@@ -20,7 +20,7 @@ const ProductCard = ({ data }) => {
                         <img 
                             src={data.image[0].url} 
                             alt={data.name} 
-                            className="object-cover w-full h-[250px] transition duration-500 ease-in-out group-hover:blur-[2px] group-hover:brightness-50" 
+                            className="object-cover w-full h-[250px] shadow-lg transition duration-500 ease-in-out group-hover:blur-[2px] group-hover:brightness-50" 
                         />
                     </Link>
                     <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
@@ -91,7 +91,7 @@ const ProductCard = ({ data }) => {
                         <h4 className="ml-2 font-[500] text-[14px] text-slate-800 font-Roboto">Reviews</h4>
                     </div>
                     <span className="font-bold font-Roboto text-[15px]">
-                        {data.total_sold && `${data.total_sold} sold`}
+                        { data.total_sold && `${data.total_sold} sold` }
                     </span>
                 </div>
 
