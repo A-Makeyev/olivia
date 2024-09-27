@@ -10,13 +10,16 @@ import ProductDetailsCard from "../ProductDetailsCard/ProductDetailsCard"
 const ProductCard = ({ data }) => {
     const [clickable, setClickable] = useState(false)
     const [open, setOpen] = useState(false)
-    const productName = data.name.replace(/\s+/g, '-') 
+
+    const displayUnitsLeft = data.stock === 1 ? 'last one' : (data.stock <= 5 && data.stock > 1) ? `only ${data.stock} left` : ''
+    const unitsSold = Math.round(data.total_sold / (data.stock + data.total_sold) * 100)
+    const displayUnitsSold = `${unitsSold >= 70 ? '🔥' : ''} ${unitsSold}% sold` 
 
     return (
         <>
             <div className="w-full bg-white p-3 relative rounded-lg shadow-lg">
                 <div className="relative group">
-                    <Link to={`/product/${productName}`} className="block">
+                    <Link to={`/product/${data.name.replace(/\s+/g, '-')}`} className="block">
                         <img 
                             src={data.image[0].url} 
                             alt={data.name} 
@@ -78,7 +81,7 @@ const ProductCard = ({ data }) => {
                         </h4>
                     </div>
                     <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} font-bold text-[15px] font-Roboto`}>
-                        {data.stock === 1 ? 'last one' : (data.stock <= 5 && data.stock > 1) ? `only ${data.stock} left` : ''}
+                        { unitsSold >= 70 && displayUnitsLeft }
                     </h4>
                 </div>
                 <div className="flex items-center justify-between ml-1">
@@ -91,7 +94,7 @@ const ProductCard = ({ data }) => {
                         <h4 className="ml-2 font-[500] text-[14px] text-slate-800 font-Roboto">Reviews</h4>
                     </div>
                     <span className="font-bold font-Roboto text-[15px]">
-                        { data.total_sold && `${data.total_sold} sold` }
+                        { (data.total_sold && unitsSold >= 50) && displayUnitsSold }
                     </span>
                 </div>
 

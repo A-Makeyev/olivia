@@ -11,6 +11,10 @@ const ProductDetailsCard = ({ setOpen, data }) => {
     const [clickable, setClickable] = useState(false)
     const [count, setCount] = useState(1)
 
+    const displayUnitsLeft = data.stock === 1 ? 'last one!' : (data.stock <= 5 && data.stock > 1) ? `${data.stock} left!` : ''
+    const unitsSold = Math.round(data.total_sold / (data.stock + data.total_sold) * 100)
+    const displayUnitsSold = `${unitsSold >= 70 ? '🔥' : ''} ${unitsSold}% sold` 
+
     const handleMessage = () => {
 
     }
@@ -24,14 +28,16 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                         <RxCross2 
                             size={30} 
                             onClick={() => setOpen(false)} 
-                            className="absolute top-3 right-3 z-50 cursor-pointer rounded-full hover:bg-slate-100 transition" 
+                            className="absolute top-3 right-3 z-50 cursor-pointer rounded-full hover:bg-slate-100 hover:rotate-90 duration-300" 
                         />
                         <div className="block w-full 1300px:flex mt-2">
                             <div className="block w-full 1300px:w-[50%]">
                                 <div className="flex justify-center h-[450px]">
-                                    <img src={data.image[0].url} alt={data.name} className="object-cover w-full h-[100%] p-5 mt-7" />
+                                    <Link to={`/product/${data.name.replace(/\s+/g, '-')}`}>
+                                        <img src={data.image[0].url} alt={data.name} className="object-cover w-[900px] h-[100%] p-5 mt-7 cursor-pointer" />
+                                    </Link> 
                                 </div>
-                                <div className="flex pl-5 mt-5">
+                                <div className="flex pl-5 pt-7">
                                     <Link to={``}>
                                         <img src={data.shop.image.url} alt={data.shop.name} className="object-fill w-[50px] h-[50px] mr-4 mt-3 rounded-full" />
                                     </Link>
@@ -59,7 +65,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                 </div>
                             </div>
                             <div className="w-full 1300px:w-[50%] pt-7 pl-[5px] pr-[5px]">
-                                <div className="h-[425px] overflow-auto">
+                                <div className="h-[422px] overflow-auto">
                                     <h1 className="text-[25px] font-[600] font-Roboto text-slate-800 py-5 pr-5">
                                         { data.name }
                                     </h1>
@@ -67,8 +73,8 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         { data.description }
                                     </p>
                                 </div>
-                                <div className={`${!data.price ? "w-[100px] text-center" : "flex pl-1"} pt-5`}>
-                                    <h3 className="font-bold 400px:text-[20px] text-[18px] text-slate-800 font-Roboto">
+                                <div className={`${!data.price ? "flex text-center" : "flex pl-1"} pt-10`}>
+                                    <h3 className={`${!data.price && "w-[100px]"} font-bold 400px:text-[20px] text-[18px] text-slate-800 font-Roboto`}>
                                         { data.price === 0 ? data.price : data.discount_price } 
                                         <span className="text-[18px]">
                                             { currency }
@@ -77,8 +83,11 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                     <h3 className="font-bold 400px:text-[20px] text-[18px] mt-[0.5px] pl-3 text-red-600 font-Roboto line-through">
                                         { data.price && data.price + currency } 
                                     </h3>
+                                    <span className={`${data.price >= 1000 ? "w-[120px]" : "w-[170px]"} ${data.price && "pl-5"} text-center font-bold font-Roboto text-[16px] mt-[4.5px]`}>
+                                        { (data.total_sold && unitsSold >= 50) && displayUnitsSold }
+                                    </span>
                                 </div>
-                                <div className="flex items-center justify-start">
+                                <div className="flex items-center justify-start mb-5">
                                     <div className="w-[120px]">
                                         <button
                                             disabled={count === 1}
@@ -94,6 +103,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         <button
                                             disabled={count === data.stock}
                                             onClick={() => setCount(count + 1)}
+                                            tooltip={count === data.stock && displayUnitsLeft}
                                             className={`${count === data.stock ? "cursor-not-allowed" : "hover:opacity-75 transition duration-200 ease-in-out"} 
                                             bg-gradient-to-r from-zinc-300 to-zinc-200 text-slate-950 font-bold 400px:px-3 400px:py-1 px-2 py-1`}
                                         >
@@ -127,14 +137,6 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         )}
                                         
                                     </div>
-                                </div>
-                                <div className="flex items-center justify-start">
-                                    <span className="font-bold font-Roboto text-[16px] w-[100px] text-center">
-                                        { data.total_sold && `${data.total_sold} sold` }
-                                    </span>
-                                    <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} w-[195px] text-center font-bold 400px:text-[16px] text-[14px] font-Roboto`}>
-                                        { data.stock === 1 ? 'last one' : (data.stock <= 5 && data.stock > 1) ? `only ${data.stock} left` :  '' } 
-                                    </h4>
                                 </div>
                             </div>
                         </div>

@@ -101,7 +101,7 @@ const Header = ({ activePageIndex }) => {
 
               </button>
 
-              {dropDown && <DropDownMenu categories={categories} setDropDown={setDropDown} />}
+              { dropDown && <DropDownMenu categories={categories} setDropDown={setDropDown} /> }
 
 
             </div>
