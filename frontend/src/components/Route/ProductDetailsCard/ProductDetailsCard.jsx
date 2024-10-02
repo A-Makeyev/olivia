@@ -24,15 +24,17 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
             { data && (
                 <div className="flex items-center justify-center h-screen fixed w-full top-0 left-0 bg-slate-900 bg-opacity-60 z-40">
-                    <div className="relative overflow-y-auto w-[90%] 800px:w-[70%] 800px:h-[75vh] h-[90vh] p-4 bg-white rounded-lg shadow-lg">
-                        <RxCross2 
-                            size={30} 
-                            onClick={() => setOpen(false)} 
-                            className="absolute top-3 right-3 z-50 cursor-pointer rounded-full hover:bg-slate-100 hover:rotate-90 duration-300" 
-                        />
+                    <div className="relative overflow-y-auto w-[90%] sm:w-[80%] 2xl:w-[70%] 3xl:w-[50%] h-[75vh] p-4 bg-white rounded-lg shadow-lg">
+                        <div className="pb-3">
+                            <RxCross2 
+                                size={30} 
+                                onClick={() => setOpen(false)} 
+                                className="absolute top-3 right-3 z-50 cursor-pointer rounded-full hover:bg-slate-100 hover:rotate-90 duration-300" 
+                            />
+                        </div>
                         <div className="block w-full 1300px:flex mt-2">
                             <div className="block w-full 1300px:w-[50%]">
-                                <div className="flex justify-center h-[450px]">
+                                <div className="flex justify-center h-[550px]">
                                     <Link to={`/product/${data.name.replace(/\s+/g, '-')}`}>
                                         <img src={data.image[0].url} alt={data.name} className="object-cover w-[900px] h-[100%] p-5 mt-7 cursor-pointer" />
                                     </Link> 
@@ -64,16 +66,16 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full 1300px:w-[50%] pt-7 pl-[5px] pr-[5px]">
-                                <div className="h-[422px] overflow-auto">
-                                    <h1 className="text-[25px] font-[600] font-Roboto text-slate-800 py-5 pr-5">
+                            <div className="w-full 1300px:w-[50%] pt-6 pl-[5px] pr-[5px]">
+                                <div className="h-[428px] overflow-auto">
+                                    <h1 className="text-[20px] font-[600] font-Roboto text-slate-800 py-5 pr-5">
                                         { data.name }
                                     </h1>
                                     <p className="pr-5">
                                         { data.description }
                                     </p>
                                 </div>
-                                <div className={`${!data.price ? "flex text-center" : "flex pl-1"} pt-10`}>
+                                <div className={`${!data.price ? "flex text-center" : "flex pl-1"} pt-6`}>
                                     <h3 className={`${!data.price && "w-[100px]"} font-bold 400px:text-[20px] text-[18px] text-slate-800 font-Roboto`}>
                                         { data.price === 0 ? data.price : data.discount_price } 
                                         <span className="text-[18px]">

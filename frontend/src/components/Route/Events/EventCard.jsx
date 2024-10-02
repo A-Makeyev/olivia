@@ -20,7 +20,7 @@ const EventCard = ({ data }) => {
         <div className="w-full block lg:flex p-5 mb-12 bg-white rounded-lg shadow-lg">
             <div className="w-full lg:w-[50%] flex justify-center">
                 <Link to={`/product/${product.name.replace(/\s+/g, '-')}`}>
-                    <img src={product.image[0].url} alt={product.name} className="object-cover p-5 cursor-pointer hover:scale-105 duration-300" />
+                    <img src={product.image[0].url} alt={product.name} className="object-cover h-[100%] p-5 cursor-pointer hover:scale-105 duration-300" />
                 </Link>
             </div>
             <div className="w-full lg:w-[50%] flex flex-col p-5">
