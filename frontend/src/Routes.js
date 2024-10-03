@@ -1,7 +1,11 @@
-import HomePage from "../src/pages/HomePage.jsx"
-import LoginPage from "../src/pages/LoginPage.jsx"
-import SignUpPage from "../src/pages/SignUpPage.jsx"
-import ActivationPage from "../src/pages/ActivationPage.jsx"
+import HomePage from "../src/pages/HomePage"
+import LoginPage from "../src/pages/LoginPage"
+import SignUpPage from "../src/pages/SignUpPage"
+import ActivationPage from "../src/pages/ActivationPage"
+import ProductsPage from "../src/pages/ProductsPage"
+import BestSellingPage from "../src/pages/BestSellingPage"
+import EventsPage from "../src/pages/EventsPage"
+import FaqPage from "../src/pages/FaqPage"
 
 
 export {
@@ -9,4 +13,8 @@ export {
     LoginPage,
     SignUpPage,
     ActivationPage,
+    ProductsPage,
+    BestSellingPage,
+    EventsPage,
+    FaqPage
 }

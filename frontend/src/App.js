@@ -1,34 +1,38 @@
 import { useEffect } from "react"
+import { useSelector } from "react-redux"
 import { authenticateUser } from "./redux/actions/user"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { LoginPage, SignUpPage, ActivationPage, HomePage } from "./Routes.js"
-// import toast, { Toaster } from "react-hot-toast"
+import { LoginPage, SignUpPage, ActivationPage, HomePage, ProductsPage, BestSellingPage, EventsPage, FaqPage } from "./Routes.js"
 import Store from "./redux/store"
 import "./App.css"
 
 
 const App = () => {
+  const { loading } = useSelector((state) => state.user)
+
   useEffect(() => {
     Store.dispatch(authenticateUser()) 
-  }) 
+  }, []) 
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/sign-up" element={<SignUpPage />} />
-        <Route path="/activation/:activationToken" element={<ActivationPage />} />
-      </Routes>
-      {/* <Toaster toastOptions={{
-        duration: 3000,
-        style: {
-          textAlign: 'center',
-          fontWeight: '600'
-        },
-      }}
-      /> */}
-    </BrowserRouter>
+    <>
+      { loading ? (
+        null
+      ) : (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
+            <Route path="/activation/:activationToken" element={<ActivationPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/best-selling" element={<BestSellingPage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/faq" element={<FaqPage />} />
+          </Routes>
+        </BrowserRouter>
+      )}
+    </>
   )
 }
 

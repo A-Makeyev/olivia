@@ -71,7 +71,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col justify-center m-auto xl:m-0 px-4 py-5 w-full md:w-[80%] xl:w-[90%] bg-indigo-400 rounded">
                     <div>
-                        <h1 className="text-sm sm:text-base md:text-lg lg:text-xl text-pretty mb-6 font-semibold">
+                        <h1 className="text-base sm:text-lg lg:text-xl text-pretty mb-6 font-semibold">
                             <span className="text-slate-800 font-bold">Be the first</span> 
                             { ' ' }
                             to be notified on events

@@ -6,7 +6,9 @@ npm run destroy-data
 
 1. forms ui error handling
 2. responsive email template
-3.
+3. show in which category no products found
+4.
+
 
 - Fix shipping price (default 10)
 - Fix shipping address (from cart to user)

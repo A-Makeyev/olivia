@@ -24,6 +24,7 @@ const Login = () => {
       if (res.data.success) {
         setloading(false)
         navigate('/')
+        window.location.reload()
       }
     }).catch((err) => {
       setloading(false)

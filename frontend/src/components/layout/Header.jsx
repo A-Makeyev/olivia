@@ -1,14 +1,17 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
 import { categories, products } from "../../static/data.js"
 import { IoSearch, IoHeartOutline } from "react-icons/io5"
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"
 import { BiMenuAltLeft, BiShoppingBag, BiUserCircle } from "react-icons/bi"
+import { server } from "../../constants"
 import DropDownMenu from "./DropDownMenu.jsx"
 import Navbar from './Navbar.jsx'
 
 
 const Header = ({ activePageIndex }) => {
+  const { isAuthenticated, user } = useSelector((state) => state.user)
   const [searchTerm, setSearchTerm] = useState('')
   const [searchData, setSearchData] = useState(null)
   const [dropDown, setDropDown] = useState(false)
@@ -85,7 +88,7 @@ const Header = ({ activePageIndex }) => {
           </div>
         </div>
       </div>
-      <div className={`${active && "fixed top-0 left-0 z-10 shadow-md"} hidden w-full bg-indigo-400 h-[70px] 800px:flex items-center justify-between transition`}>
+      <div className={`${active ? "fixed top-0 left-0 z-10 shadow-md" : ""} hidden w-full bg-indigo-400 h-[70px] 800px:flex items-center justify-between transition`}>
         <div className="w-11/12 mx-auto relative flex items-center justify-between">
           <div>
             <div onClick={() => setDropDown(!dropDown)} className="hidden relative h-[60px] mt-[10px] w-[260px] lg:block">
@@ -131,10 +134,18 @@ const Header = ({ activePageIndex }) => {
               </div>
             </div>
             <div className="flex items-center">
-              <div className="relative mr-[15px] cursor-pointer" tooltip="profile">
-                <Link to="/login">
-                  <BiUserCircle size={30} color="rgb(255 255 255 / 83%)" />
-                </Link>
+              <div className="relative mr-[15px] cursor-pointer" tooltip={isAuthenticated ? "profile" : "login"}>
+
+                { isAuthenticated ? (
+                  <Link to="/profile">
+                    <img src={server + user.avatar} alt={user.name} className="w-8 h-8 rounded-full" />
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <BiUserCircle size={30} color="rgb(255 255 255 / 83%)" />
+                  </Link>
+                )}
+
               </div>
             </div>
           </div>

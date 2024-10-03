@@ -1,13 +1,13 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io"
-import { BiMessageDetail, BiShoppingBag } from "react-icons/bi"
+import { BiShoppingBag } from "react-icons/bi"
 import { products } from "../../../static/data"
 import { currency } from "../../../constants"
 import Countdown from "./Countdown"
 
 
-const EventCard = ({ data }) => {
+const EventCard = () => {
     const [clickable, setClickable] = useState(false)
     const [count, setCount] = useState(1)
 
@@ -17,10 +17,10 @@ const EventCard = ({ data }) => {
     const displayUnitsSold = `${unitsSold >= 70 ? '🔥' : ''} ${unitsSold}% sold` 
 
     return (
-        <div className="w-full block lg:flex p-5 mb-12 bg-white rounded-lg shadow-lg">
+        <div className="w-full block lg:flex my-12 p-5 bg-white rounded-lg shadow-lg">
             <div className="w-full lg:w-[50%] flex justify-center">
                 <Link to={`/product/${product.name.replace(/\s+/g, '-')}`}>
-                    <img src={product.image[0].url} alt={product.name} className="object-cover h-[100%] p-5 cursor-pointer hover:scale-105 duration-300" />
+                    <img src={product.image[0].url} alt={product.name} className="object-cover h-[100%] p-5 cursor-pointer hover:brightness-105 transition" />
                 </Link>
             </div>
             <div className="w-full lg:w-[50%] flex flex-col p-5">
