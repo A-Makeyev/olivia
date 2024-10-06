@@ -60,7 +60,7 @@ const SignUp = () => {
           Create your new account
         </h2>
       </div>
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md shadow-lg rounded-lg">
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md shadow-lg rounded-lg mx-auto w-[90%]">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form onSubmit={handleSignUp} className="space-y-6">
             <div>
@@ -147,7 +147,7 @@ const SignUp = () => {
                 <label
                   htmlFor="file-input"
                   className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 cursor-pointer
-                        rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition">
+                  rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition">
                   <span>Profile Image</span>
                   <input
                     type="file"
