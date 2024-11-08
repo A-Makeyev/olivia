@@ -24,7 +24,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
             { data && (
                 <div className="flex items-center justify-center h-screen fixed w-full top-0 left-0 bg-slate-900 bg-opacity-60 z-40">
-                    <div className="relative overflow-y-auto w-[90%] sm:w-[80%] 2xl:w-[70%] 3xl:w-[50%] h-[75vh] p-4 bg-white rounded-lg shadow-lg hide-scrollbar">
+                    <div className="relative overflow-y-auto w-[90%] sm:w-[80%] 2xl:w-[70%] 3xl:w-[60%] h-[75vh] p-4 bg-white rounded-lg shadow-lg hide-scrollbar">
                         <RxCross2 
                             size={30} 
                             onClick={() => setOpen(false)} 
@@ -65,7 +65,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                 </div>
                             </div>
                             <div className="w-full 1300px:w-[50%] pt-6 pl-[5px] pr-[5px]">
-                                <div className="lg:h-[425px] overflow-auto hide-scrollbar">
+                                <div className="lg:h-[424px] overflow-auto hide-scrollbar">
                                     <h1 className="text-[20px] font-[600] font-Roboto text-slate-800 py-5 pr-5">
                                         { data.name }
                                     </h1>
@@ -103,7 +103,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                                         <button
                                             disabled={count === data.stock}
                                             onClick={() => setCount(count + 1)}
-                                            tooltip={count === data.stock && displayUnitsLeft}
+                                            tooltip={count === data.stock ? displayUnitsLeft : undefined}
                                             className={`${count === data.stock ? "cursor-not-allowed" : "hover:opacity-75 transition duration-200 ease-in-out"} 
                                             bg-gradient-to-r from-zinc-300 to-zinc-200 text-slate-950 font-bold 400px:px-3 400px:py-1 px-2 py-1`}
                                         >

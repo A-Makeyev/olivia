@@ -26,13 +26,13 @@ const Countdown = () => {
         return timeLeft
     }
 
-    const timerComponent = Object.keys(time).map((interval) => {
+    const timerComponent = Object.keys(time).map((interval, index) => {
         if (!time[interval]) {
             return null
         }
 
         return (
-            <span className="text-[16px] font-semibold text-slate-900">
+            <span key={index} className="text-[16px] font-semibold text-slate-900">
                 { time[interval] } { time[interval] > 1 ? interval : interval.substring(0, interval.length - 1) } { ' ' }
             </span>
         )

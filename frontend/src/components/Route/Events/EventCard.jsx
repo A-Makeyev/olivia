@@ -65,7 +65,7 @@ const EventCard = () => {
                         <button
                             disabled={count === product.stock}
                             onClick={() => setCount(count + 1)}
-                            tooltip={count === product.stock && displayUnitsLeft}
+                            tooltip={count === product.stock ? displayUnitsLeft : undefined}
                             className={`${count === product.stock ? "cursor-not-allowed" : "hover:opacity-75 transition duration-200 ease-in-out"} 
                             bg-gradient-to-r from-zinc-300 to-zinc-200 text-slate-950 font-bold 400px:px-3 400px:py-1 px-2 py-1`}
                         >

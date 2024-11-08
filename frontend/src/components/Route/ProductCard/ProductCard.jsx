@@ -8,12 +8,13 @@ import { currency } from "../../../constants"
 import ProductDetailsCard from "../ProductDetailsCard/ProductDetailsCard"
 
 const ProductCard = ({ data }) => {
-    const [clickable, setClickable] = useState(false)
     const [open, setOpen] = useState(false)
-
+    const [clickable, setClickable] = useState(false)
     const displayUnitsLeft = data.stock === 1 ? 'last one' : (data.stock <= 5 && data.stock > 1) ? `only ${data.stock} left` : ''
     const unitsSold = Math.round(data.total_sold / (data.stock + data.total_sold) * 100)
     const displayUnitsSold = `${unitsSold >= 70 ? '🔥' : ''} ${unitsSold}% sold` 
+
+    document.querySelector('body').style.overflow = open ? 'hidden' : 'auto'
 
     return (
         <>
@@ -62,22 +63,31 @@ const ProductCard = ({ data }) => {
                 </div>
                 <Link to={`/`}>
                     <h2 className="pt-3 ml-1 font-[600] underline underline-offset-2">
-                        {data.shop.name}
+                        { data.shop.name }
                     </h2>
                 </Link>
                 <div>
                     <h4 className="py-3 ml-1 text-[14px] font-[500] h-[105px]">
-                        {data.name.length > 150 ? data.name.slice(0, 150) + '...' : data.name}
+                        { data.name.length < 160 ? data.name : (
+                            <>
+                                { data.name.slice(0, 160) + '... ' }
+                                <span 
+                                    onClick={() => setOpen(!open)} 
+                                    className="text-slate-600 hover:text-slate-700 cursor-pointer transition">
+                                    more
+                                </span>
+                            </>
+                        )}
                     </h4>
                 </div>
                 <div className="flex items-center justify-between py-2 ml-1">
                     <div className="flex">
                         <h4 className="font-bold text-[20px] text-slate-800 font-Roboto">
-                            {data.price === 0 ? data.price : data.discount_price} 
+                            { data.price === 0 ? data.price : data.discount_price }
                             <span className="text-[18px]">{currency}</span>
                         </h4>
                         <h4 className="font-bold text-[20px] mt-[0.5px] pl-3 text-red-600 font-Roboto line-through">
-                            {data.price && data.price + currency}
+                            { data.price && data.price + currency }
                         </h4>
                     </div>
                     <h4 className={`${data.stock === 1 ? "text-red-600" : "text-slate-800"} font-bold text-[15px] font-Roboto`}>
