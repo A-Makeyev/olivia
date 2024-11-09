@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import { products } from "../static/data"
 import Header from "../components/Layout/Header"
@@ -7,18 +7,20 @@ import Footer from "../components/Layout/Footer/Footer"
 
 
 const ProductsPage = () => {
-    const [data, setData] = useState([])
+    //const [data, setData] = useState([])
     const [searchParams] = useSearchParams()
     const category = searchParams.get('category')
     
-    useEffect(() => {
-        if (category === null) {
-            setData(products)
-        } else {
-            const categoryProducts = products && products.filter((i) => i.category === category)
-            setData(categoryProducts)
-        }
-    }, [category])
+    // useEffect(() => {
+    //     if (category === null) {
+    //         setData(products)
+    //     } else {
+    //         const categoryProducts = products && products.filter((i) => i.category === category)
+    //         setData(categoryProducts)
+    //     }
+    // }, [category])
+
+    const data = category ? products.filter((product) => product.category === category) : products
 
     return (
         <div>

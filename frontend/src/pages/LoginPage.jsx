@@ -1,15 +1,17 @@
 import { useEffect } from "react"
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import Login from "../components/Login/Login"
 
 
 const LoginPage = () => {
+  const { isAuthenticated } = useSelector((state) => state.user)
+  const navigate = useNavigate()
+
   useEffect(() => {
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
+    if (isAuthenticated) {
+      navigate('/')
     }
-    getCookie('token')
   })
 
   return (
