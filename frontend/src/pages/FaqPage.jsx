@@ -15,7 +15,7 @@ const FaqPage = () => {
 }
 
 const Faq = () => {
-    const [activeTab, setActiveTab] = useState(0)
+    const [activeTab, setActiveTab] = useState(1)
 
     const toggleTab = (tab) => {
         if (activeTab === tab) {
@@ -26,7 +26,7 @@ const Faq = () => {
     }
 
     return (
-        <div className="w-11/12 mx-auto mt-12 mb-5 h-[60vh] sm:h-[55vh] overflow-y-scroll hide-scrollbar">
+        <div className="w-11/12 mx-auto mt-12 mb-5 h-screen overflow-y-scroll hide-scrollbar">
             <h2 className="text-3xl font-bold text-slate-900 mb-12 ml-1">
                 Frequently Asked Questions
             </h2>

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { LoginPage, SignUpPage, ActivationPage, HomePage, ProductsPage, BestSellingPage, EventsPage, FaqPage } from "./Routes.js"
 import Store from "./redux/store"
 import "./App.css"
+import ScrollTop from "./components/utils/ScrollTop.jsx"
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         null
       ) : (
         <BrowserRouter>
+          <ScrollTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />

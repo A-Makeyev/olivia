@@ -13,15 +13,15 @@ const Footer = () => {
     ]
 
     const supportLinks = [
-        { name: 'FAQ', url: '/' },
         { name: 'Contact Us', url: '/' },
         { name: 'Shipping', url: '/' },
         { name: 'Live chat', url: '/' },
-        { name: 'Sellers', url: '/' }
+        { name: 'Sellers', url: '/' },
+        { name: 'FAQ', url: '/' }
     ]    
 
     return (
-        <div className="bg-slate-900 text-slate-50">
+        <div className="bg-slate-900 text-slate-50 mt-52">
             <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-40 sm:px-8 px-5 py-16 sm:text-center">
                 <div className="flex flex-col sm:flex-row justify-around xl:justify-between text-center mb-10 xl:mb-0 sm:text-start">
                     <div className="flex flex-col justify-center">
