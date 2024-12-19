@@ -24,7 +24,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
 
             { data && (
                 <div className="flex items-center justify-center h-screen fixed w-full top-0 left-0 bg-slate-900 bg-opacity-60 z-40">
-                    <div className="relative overflow-y-auto w-[90%] sm:w-[80%] 2xl:w-[70%] 3xl:w-[60%] h-[75vh] p-4 bg-white rounded-lg shadow-lg hide-scrollbar">
+                    <div className="relative overflow-y-auto w-[90%] sm:w-[80%] 2xl:w-[70%] 3xl:w-[60%] h-[85vh] p-4 bg-white rounded-lg shadow-lg hide-scrollbar">
                         <RxCross2 
                             size={30} 
                             onClick={() => setOpen(false)} 
