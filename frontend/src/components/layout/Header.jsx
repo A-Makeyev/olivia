@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { categories, products } from "../../static/data.js"
@@ -14,6 +14,7 @@ const Header = ({ activePageIndex }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user)
   const [searchTerm, setSearchTerm] = useState('')
   const [searchData, setSearchData] = useState(null)
+  const [isScrolled, setIsScrolled] = useState(false)
   const [dropDown, setDropDown] = useState(false)
   const [active, setActive] = useState(false)
 
@@ -28,14 +29,20 @@ const Header = ({ activePageIndex }) => {
     setSearchData(filteredProducts)
   }
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 70) {
-      setActive(true)
-      setSearchTerm('')
-    } else {
-      setActive(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 70) {
+        setIsScrolled(true)
+        setActive(true)
+      } else {
+        setIsScrolled(false)
+        setActive(false)
+      }
     }
-  })
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const number = 69
 
@@ -59,16 +66,16 @@ const Header = ({ activePageIndex }) => {
             <IoSearch size={30} className="absolute right-2 top-1.5 cursor-pointer" />
 
             { searchTerm.trim() && searchData && searchData.length !== 0 && (
-              <div className="w-full absolute bg-slate-50 z-[9] rounded-b-xl shadow-xl">
-                
+              <div id="search-results" className={`${isScrolled ? 'z-0' : 'z-[9]'} w-full overflow-y-auto max-h-[70vh] absolute bg-slate-50 z-[99] rounded-b-xl shadow-xl hide-scrollbar`}>
+                 
                 { searchData && searchData.map((data, index) => {
                   const productName = data.name.replace(/\s+/g, '-')
                   return (
                     <Link to={`/product/${productName}`} key={index}>
                       <div className={`${searchData.length === index + 1 && "border-b-0 rounded-b-xl"} border-b-2 w-full flex items-start p-3 hover:bg-slate-100 transition`}>
-                        <img src={data.image[0].url} alt={data.name} className="object-cover w-[90px] h-[90px] mr-[35px] rounded-lg" />
+                        <img src={data.image[0].url} alt={data.name} className="object-cover w-[90px] h-[80px] mr-[35px] rounded-lg" />
                         <h1 className="text-lg font-Roboto py-4 pr-1">
-                          { data.name }
+                          { data.name.length < 160 ? data.name : data.name.slice(0, 160) + '...' }
                         </h1>
                       </div>
                     </Link>
@@ -103,10 +110,7 @@ const Header = ({ activePageIndex }) => {
                 }
 
               </button>
-
               { dropDown && <DropDownMenu categories={categories} setDropDown={setDropDown} /> }
-
-
             </div>
           </div>
           <div className="flex items-center">
