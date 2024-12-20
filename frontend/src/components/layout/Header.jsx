@@ -66,7 +66,7 @@ const Header = ({ activePageIndex }) => {
             <IoSearch size={30} className="absolute right-2 top-1.5 cursor-pointer" />
 
             { searchTerm.trim() && searchData && searchData.length !== 0 && (
-              <div id="search-results" className={`${isScrolled ? 'z-0' : 'z-[9]'} w-full overflow-y-auto max-h-[70vh] absolute bg-slate-50 z-[99] rounded-b-xl shadow-xl hide-scrollbar`}>
+              <div id="search-results" className={`${isScrolled ? 'hidden' : 'block'} w-full overflow-y-auto max-h-[70vh] absolute bg-slate-50 z-[9] rounded-b-xl shadow-xl hide-scrollbar`}>
                  
                 { searchData && searchData.map((data, index) => {
                   const productName = data.name.replace(/\s+/g, '-')
