@@ -45,10 +45,6 @@
   background: var(--purple);
 }
 
-* {
-  scroll-behavior: smooth;
-}
-
 *:focus {
   outline: none;
 }

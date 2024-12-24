@@ -3,14 +3,14 @@ import { useSelector } from "react-redux"
 import { authenticateUser } from "./redux/actions/user"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { LoginPage, SignUpPage, ActivationPage, HomePage, ProductsPage, BestSellingPage, EventsPage, FaqPage } from "./Routes.js"
+import ScrollTop from "./components/utils/ScrollTop.jsx"
 import Store from "./redux/store"
 import "./App.css"
-import ScrollTop from "./components/utils/ScrollTop.jsx"
 
 
 const App = () => {
   const { loading } = useSelector((state) => state.user)
-
+  
   useEffect(() => {
     Store.dispatch(authenticateUser()) 
   }, []) 
