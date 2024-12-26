@@ -21,6 +21,8 @@ const ProductsPage = () => {
                     ) : (
                         <h1 className="text-center w-full pb-[100px] text-[25px]">
                             No Products Found
+                            <br />
+                            ¯\_(ツ)_/¯
                         </h1>
                     )}
 

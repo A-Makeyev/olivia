@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { products } from "../static/data"
 import Header from "../components/Layout/Header"
 import ProductCard from "../components/Route/ProductCard/ProductCard"
@@ -6,12 +5,7 @@ import Footer from "../components/Layout/Footer/Footer"
 
 
 const BestSellingPage = () => {
-    const [data, setData] = useState([])
-
-    useEffect(() => {
-        const product = products && products.sort((a, b) => a.total_sold - b.total_sold) 
-        setData(product)
-    }, [])
+    const data = products && products.sort((a, b) => a.total_sold - b.total_sold)
 
     return (
         <div>

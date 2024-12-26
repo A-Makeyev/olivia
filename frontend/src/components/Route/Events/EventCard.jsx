@@ -59,7 +59,7 @@ const EventCard = () => {
                         >
                             -
                         </button>
-                        <span className="bg-slate-100 text-slate-900 font-bold 400px:px-3 400px:pt-[5px] 400px:pb-[6px] px-[10px] pt-[5px] pb-[6px]">
+                        <span className="bg-slate-100 text-slate-900 font-bold 400px:px-3 400px:pt-[5px] 400px:pb-[6px] px-[10px] pt-[5px] pb-[6px] select-none">
                             { count }
                         </span>
                         <button

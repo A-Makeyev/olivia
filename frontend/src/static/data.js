@@ -472,7 +472,7 @@ export const products = [
     id: 6,
     category: "Toys",
     name: "League of Legends LOL Xayah Rakan Figure Statue Game Official Model Doll",
-    description: "for league of legends figure: Xayah Rakan Xayah Rakan: Is there any duo more perfect to be our first DUO figure set Nope - and this feisty couple wouldn't have any other way. Xayah Rakan approximate measurements: 4.8 in / 12.2 cm, Width: 4.3 in / 11.0 cm Delicate And Cute Statue for league of legends Xayah Rakan figures, the high-quality manufacturing process perfectly restores the design of the character. Comes with original box and verification cardthat, can be placed on the desktop and display howcase display Or as Perfect gift for friends. This product is a collector's item intended for ages 14+",
+    description: "Xayah Rakan: Is there any duo more perfect to be our first DUO figure set Nope - and this feisty couple wouldn't have any other way. Xayah Rakan approximate measurements: 4.8 in / 12.2 cm, Width: 4.3 in / 11.0 cm Delicate And Cute Statue for league of legends Xayah Rakan figures, the high-quality manufacturing process perfectly restores the design of the character. Comes with original box and verification cardthat, can be placed on the desktop and display howcase display Or as Perfect gift for friends. This product is a collector's item intended for ages 14+",
     image: [
       {
         public_id: "test",

@@ -2,7 +2,7 @@
 
 const Sponsored = () => {
   return (
-    <div className="w-11/12 mx-auto hidden sm:block bg-white py-10 px-5 mb-12 shadow-lg rounded-lg">
+    <div className="w-11/12 mx-auto hidden sm:block bg-white mb-12 py-10 px-5 shadow-lg rounded-lg">
         <div className="flex justify-between w-full">
             <div className="flex items-start">
                 <img src="https://static.wikia.nocookie.net/logopedia/images/1/1b/Riot_Games_%282006%29.svg" alt="" className="object-contain w-[150px]" />

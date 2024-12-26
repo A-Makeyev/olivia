@@ -29,3 +29,4 @@ npm run destroy-data
 - Add css root color vars
 - Delete uploaded picture after deleting product
 - Change IP access to mongoDB
+
