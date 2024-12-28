@@ -13,13 +13,13 @@ const ProductsPage = () => {
     return (
         <div>
             <Header activePageIndex={3} />
-            <div className={`${filteredProducts.length <= 4 ? "h-[60vh] sm:h-[55vh]" : ""} w-11/12 mx-auto mt-12`}>
-                <div className={`${filteredProducts.length > 0 ? "grid grid-cols-1 gap-[15px] md:grid-cols-2 md:gap-[15px] lg:grid-cols-3 lg:gap-[15px] 2xl:grid-cols-4 2xl:gap-[15px] 3xl:grid-cols-5 3xl:gap-[15px] mb-12" : ""}`}>
+            <div className="w-11/12 mx-auto mt-14 mb-52">
+                <div className={`${filteredProducts.length > 0 ? "grid grid-cols-1 gap-[15px] md:grid-cols-2 md:gap-[15px] lg:grid-cols-3 lg:gap-[15px] 2xl:grid-cols-4 2xl:gap-[15px] 3xl:grid-cols-5 3xl:gap-[15px] mb-12" : "text-center"}`}>
                     
                     { filteredProducts.length > 0 ? (
                         filteredProducts.map((product, index) => <ProductCard data={product} key={index} /> )
                     ) : (
-                        <h1 className="text-center w-full pb-[100px] text-[25px]">
+                        <h1 className="py-52 text-[25px]">
                             No Products Found
                             <br />
                             ¯\_(ツ)_/¯

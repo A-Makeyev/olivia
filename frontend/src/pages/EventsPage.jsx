@@ -7,7 +7,7 @@ const EventsPage = () => {
   return (
     <div>
         <Header activePageIndex={4} />
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto mt-14 mb-52">
             <EventCard />
             <EventCard />
         </div>

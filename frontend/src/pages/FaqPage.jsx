@@ -26,7 +26,7 @@ const Faq = () => {
     }
 
     return (
-        <div className="w-11/12 mx-auto mt-12 mb-5 h-screen overflow-y-scroll hide-scrollbar">
+        <div className="w-11/12 mx-auto mt-14 mb-96 overflow-y-scroll hide-scrollbar">
             <h2 className="text-3xl font-bold text-slate-900 mb-12 ml-1">
                 Frequently Asked Questions
             </h2>
@@ -213,6 +213,31 @@ const Faq = () => {
                         <div className="mt-4">
                             <p className="w-[99%] text-base text-slate-900">
                                 Yes, international shipping is available for most countries.
+                            </p>
+                        </div>
+                    )}
+
+                </div>
+                <div className="border-b border-slate-800 py-5">
+                    <button
+                        onClick={() => toggleTab(8)}
+                        className="flex items-center justify-between w-full"
+                    >
+                        <span className="text-lg font-medium text-slate-900">
+                            Can I use coupon codes?
+                        </span>
+
+                        { activeTab === 7 ? 
+                            <IoIosArrowUp size={20} className="h-6 w-6 text-slate-900 cursor-pointer" />
+                            :
+                            <IoIosArrowDown size={20} className="h-6 w-6 text-slate-900 cursor-pointer" />
+                        }
+                    </button>
+
+                    { activeTab === 8 && (
+                        <div className="mt-4">
+                            <p className="w-[99%] text-base text-slate-900">
+                                Yes, vendors may have their own coupons for their products.
                             </p>
                         </div>
                     )}
